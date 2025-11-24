@@ -6,9 +6,6 @@ import { initialStyles } from "../styles/loginStyles";
 export default function LoginPage() {
     return (
         <>
-            {/* isso remove o header */}
-            <Stack.Screen options={{ headerShown: false }} />
-
             <ImageBackground
                 source={require("../assets/images/fundoLogin.png")}
                 style={initialStyles.background}
