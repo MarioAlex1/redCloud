@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
-export const loginStyles = StyleSheet.create({
+export const initialStyles = StyleSheet.create({
     background: {
         flex: 1, //faz a imagem aparecer na tela
         width,
