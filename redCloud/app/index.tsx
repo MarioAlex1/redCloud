@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageBackground, View, TouchableOpacity, Text } from "react-native";
-import { Stack } from "expo-router";
-import { loginStyles } from "../styles/loginStyles";
+import { Link, Stack } from "expo-router";
+import { initialStyles } from "../styles/loginStyles";
 
 export default function LoginPage() {
     return (
@@ -11,24 +11,28 @@ export default function LoginPage() {
 
             <ImageBackground
                 source={require("../assets/images/fundoLogin.png")}
-                style={loginStyles.background}
+                style={initialStyles.background}
                 resizeMode="cover"
             >
                 {/* botão de skip */}
-                <View style={loginStyles.skipContainer}>
+                <View style={initialStyles.skipContainer}>
                     <TouchableOpacity>
-                        <Text style={loginStyles.skipText}>Pular</Text>
+                        <Text style={initialStyles.skipText}>Pular</Text>
                     </TouchableOpacity>
                 </View>
 
-                <View style={loginStyles.buttonsContainer}>
-                    <TouchableOpacity style={loginStyles.buttonLogin}>
-                        <Text style={loginStyles.buttonText}>Login</Text>
+                <View style={initialStyles.buttonsContainer}>
+                    <Link href="/login" asChild>
+                    <TouchableOpacity style={initialStyles.buttonLogin}>
+                        <Text style={initialStyles.buttonText}>Login</Text>
                     </TouchableOpacity>
+                    </Link>
 
-                    <TouchableOpacity style={loginStyles.buttonRegister}>
-                        <Text style={loginStyles.buttonTextRegister}>Registre-se</Text>
+                    <Link href="/register" asChild>
+                    <TouchableOpacity style={initialStyles.buttonRegister}>
+                        <Text style={initialStyles.buttonTextRegister}>Registre-se</Text>
                     </TouchableOpacity>
+                    </Link>
                 </View>
             </ImageBackground>
         </>
