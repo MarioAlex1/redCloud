@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageBackground, View, TouchableOpacity, Text } from "react-native";
-import { Link, Stack } from "expo-router";
-import { initialStyles } from "../styles/loginStyles";
+import { Link } from "expo-router";
+import { initialStyles } from "../styles/initialStyles";
 
 export default function LoginPage() {
     return (
