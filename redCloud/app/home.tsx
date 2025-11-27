@@ -1,6 +1,7 @@
 import { View, Text, ImageBackground, TouchableOpacity, ScrollView, Image } from "react-native";
 import { homeStyles } from "../styles/homeStyles";
 import { Feather, EvilIcons } from "@expo/vector-icons";
+import { Link } from "expo-router";
 
 export default function homePage() {
     return (
@@ -18,9 +19,11 @@ export default function homePage() {
                         <View style={homeStyles.overlay}>
 
                             <View>
+                                <Link href="/search" asChild>
                                 <TouchableOpacity style={homeStyles.search}>
                                     <EvilIcons name="search" size={35} color="white" />
                                 </TouchableOpacity>
+                                </Link>
                             </View>
 
                             <View style={homeStyles.buttonsRow}>

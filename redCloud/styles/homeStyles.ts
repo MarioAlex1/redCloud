@@ -25,8 +25,10 @@ export const homeStyles = StyleSheet.create({
     },
 
     search: {
+        position: "absolute",
         bottom: 420,
-        left: 315
+        left: 300,
+        zIndex: 10,
     },
 
     buttonsRow: {
