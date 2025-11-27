@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { ImageBackground, View, TextInput, TouchableOpacity, Text, Pressable } from "react-native";
+import { ImageBackground, View, TextInput, TouchableOpacity, Text } from "react-native";
 import { registerStyles } from "../styles/registerStyles";
 import Checkbox from "expo-checkbox"; //o botão de lembre-me
-import { AntDesign } from "@expo/vector-icons";
+import AntDesign from "@expo/vector-icons";
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 export default function RegisterPage() {
