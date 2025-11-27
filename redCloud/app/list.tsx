@@ -7,6 +7,7 @@ import { Link, usePathname, Stack } from 'expo-router';
 export default function listPage() {
     const pathname = usePathname();
     const [searchOpen, setSearchOpen] = useState(false);
+    const [activeTab, setActiveTab] = useState<'assistidos' | 'naoAssistidos' | 'downloads'>('naoAssistidos');
 
     return (
         <>
@@ -35,32 +36,77 @@ export default function listPage() {
 
                 {/* Opções Assistidos / Não Assistidos / Downloads */}
                 <View style={ListStyles.optionsRow}>
-                    <TouchableOpacity style={[ListStyles.optionButton, ListStyles.activeOption]}>
+                    <TouchableOpacity
+                        style={[ListStyles.optionButton, activeTab === 'assistidos' && ListStyles.activeOption]}
+                        onPress={() => setActiveTab('assistidos')}
+                    >
                         <Text style={ListStyles.optionText}>Assistidos</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[ListStyles.optionButton]}>
+
+                    <TouchableOpacity
+                        style={[ListStyles.optionButton, activeTab === 'naoAssistidos' && ListStyles.activeOption]}
+                        onPress={() => setActiveTab('naoAssistidos')}
+                    >
                         <Text style={ListStyles.optionText}>Não Assistidos</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={ListStyles.optionButton}>
+
+                    <TouchableOpacity
+                        style={[ListStyles.optionButton, activeTab === 'downloads' && ListStyles.activeOption]}
+                        onPress={() => setActiveTab('downloads')}
+                    >
                         <Text style={ListStyles.optionText}>Downloads</Text>
                     </TouchableOpacity>
                 </View>
 
-                {/* Conteúdo Assistidos */}
+                {/* Conteúdo */}
                 <ScrollView contentContainerStyle={ListStyles.listContainer}>
-                    <View style={ListStyles.emptyContainer}>
-                        <Image
-                            source={require('../assets/images/nadaAqui.png')} 
-                            style={ListStyles.emptyImage}
-                        />
-                        <Text style={ListStyles.emptyTitle}>Opa... Nada aqui...</Text>
-                        <Text style={ListStyles.emptySubtitle}>Vamos adicionar algo</Text>
-                        <Link href="/home" asChild>
-                            <TouchableOpacity style={ListStyles.addButton}>
-                                <Text style={ListStyles.addButtonText}>Procurar</Text>
-                            </TouchableOpacity>
-                        </Link>
-                    </View>
+                    {activeTab === 'assistidos' && (
+                        <View style={ListStyles.emptyContainer}>
+                            <Image
+                                source={require('../assets/images/nadaAqui.png')} 
+                                style={ListStyles.emptyImage}
+                            />
+                            <Text style={ListStyles.emptyTitle}>Opa... Nada assistido ainda</Text>
+                            <Text style={ListStyles.emptySubtitle}>Vamos assistir algo</Text>
+                            <Link href="/home" asChild>
+                                <TouchableOpacity style={ListStyles.addButton}>
+                                    <Text style={ListStyles.addButtonText}>Procurar</Text>
+                                </TouchableOpacity>
+                            </Link>
+                        </View>
+                    )}
+
+                    {activeTab === 'naoAssistidos' && (
+                        <View style={ListStyles.emptyContainer}>
+                            <Image
+                                source={require('../assets/images/nao-assistidos.png')} 
+                                style={ListStyles.emptyImage}
+                            />
+                            <Text style={ListStyles.emptyTitle}>Opa... Nada aqui...</Text>
+                            <Text style={ListStyles.emptySubtitle}>Vamos adicionar algo</Text>
+                            <Link href="/home" asChild>
+                                <TouchableOpacity style={ListStyles.addButton}>
+                                    <Text style={ListStyles.addButtonText}>Adicionar na Lista</Text>
+                                </TouchableOpacity>
+                            </Link>
+                        </View>
+                    )}
+
+                    {activeTab === 'downloads' && (
+                        <View style={ListStyles.emptyContainer}>
+                            <Image
+                                source={require('../assets/images/downloads.png')} 
+                                style={ListStyles.emptyImage}
+                            />
+                            <Text style={ListStyles.emptyTitle}>Nada baixado ainda</Text>
+                            <Text style={ListStyles.emptySubtitle}>Baixe algum anime</Text>
+                            <Link href="/home" asChild>
+                                <TouchableOpacity style={ListStyles.addButton}>
+                                    <Text style={ListStyles.addButtonText}>Procurar</Text>
+                                </TouchableOpacity>
+                            </Link>
+                        </View>
+                    )}
                 </ScrollView>
 
                 {/* Footer */}
