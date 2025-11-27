@@ -18,14 +18,6 @@ export default function homePage() {
                     >
                         <View style={homeStyles.overlay}>
 
-                            <View>
-                                <Link href="/search" asChild>
-                                <TouchableOpacity style={homeStyles.search}>
-                                    <EvilIcons name="search" size={35} color="white" />
-                                </TouchableOpacity>
-                                </Link>
-                            </View>
-
                             <View style={homeStyles.buttonsRow}>
 
                                 <TouchableOpacity style={homeStyles.button}>
@@ -74,6 +66,12 @@ export default function homePage() {
                     </ScrollView>
                 </View>
             </ScrollView>
+
+            <Link href="/search" asChild>
+                <TouchableOpacity style={homeStyles.searchButton}>
+                    <EvilIcons name="search" size={35} color="white" />
+                </TouchableOpacity>
+            </Link>
 
             <View style={homeStyles.footer}>
                 <TouchableOpacity style={homeStyles.footerButton}>

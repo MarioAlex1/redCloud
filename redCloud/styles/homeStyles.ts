@@ -24,13 +24,6 @@ export const homeStyles = StyleSheet.create({
         bottom: 1,
     },
 
-    search: {
-        position: "absolute",
-        bottom: 420,
-        left: 300,
-        zIndex: 10,
-    },
-
     buttonsRow: {
         flexDirection: "row",
         gap: 35,
@@ -100,6 +93,16 @@ export const homeStyles = StyleSheet.create({
         height: 150,
         borderRadius: 10,
         backgroundColor: "#222",
+    },
+
+    searchButton: {
+        position: "absolute",
+        top: 70,
+        right: 10,
+        backgroundColor: "rgba(0,0,0,0.6)",
+        padding: 5,
+        borderRadius: 50,
+        zIndex: 50,
     },
 
     footer: {
