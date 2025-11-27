@@ -13,9 +13,11 @@ export default function LoginPage() {
             >
                 {/* botão de skip */}
                 <View style={initialStyles.skipContainer}>
+                    <Link href="/home" asChild replace>
                     <TouchableOpacity>
                         <Text style={initialStyles.skipText}>Pular</Text>
                     </TouchableOpacity>
+                    </Link>
                 </View>
 
                 <View style={initialStyles.buttonsContainer}>
