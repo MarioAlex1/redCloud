@@ -20,7 +20,7 @@ export const registerStyles = StyleSheet.create({
 
     tittle: {
         fontSize: 35,
-        fontWeight: 'black',
+        fontWeight: "600",
         textAlign: 'center',
         bottom: 100
     },
