@@ -1,12 +1,14 @@
 import { View, Text, ImageBackground, TouchableOpacity, ScrollView, Image } from "react-native";
 import { homeStyles } from "../styles/homeStyles";
 import { Feather, EvilIcons } from "@expo/vector-icons";
-import { Link } from "expo-router";
+import { Link, usePathname } from "expo-router"; // o segundo é pra efeito ativo
 
 export default function homePage() {
+    const pathname = usePathname(); //serve pra pegar a rota atual
+
     return (
         <View style={{ flex: 1 }}>
-            <ScrollView 
+            <ScrollView
                 style={homeStyles.screen}
                 contentContainerStyle={{ paddingBottom: 120 }}
             >
@@ -74,17 +76,36 @@ export default function homePage() {
             </Link>
 
             <View style={homeStyles.footer}>
-                <TouchableOpacity style={homeStyles.footerButton}>
-                    <Feather name="home" size={24} color="#fff" />
-                </TouchableOpacity>
+                <Link href="/home" asChild>
+                    <TouchableOpacity style={homeStyles.footerButton}>
+                        <Feather
+                            name="home"
+                            size={24}
+                            color={pathname === "/home" ? "#e50914" : "#fff"}
+                        />
+                    </TouchableOpacity>
+                </Link>
 
-                <TouchableOpacity style={homeStyles.footerButton}>
-                    <Feather name="list" size={24} color="#fff" />
-                </TouchableOpacity>
+                <Link href="/list" asChild>
+                    <TouchableOpacity style={homeStyles.footerButton}>
+                        <Feather
+                            name="list"
+                            size={24}
+                            color={pathname === "/list" ? "#e50914" : "#fff"}
+                        />
+                    </TouchableOpacity>
+                </Link>
 
-                <TouchableOpacity style={homeStyles.footerButton}>
-                    <Feather name="user" size={24} color="#fff" />
-                </TouchableOpacity>
+                <Link href="/user" asChild>
+                    <TouchableOpacity style={homeStyles.footerButton}>
+                        <Feather
+                            name="user"
+                            size={24}
+                            color={pathname === "/user" ? "#e50914" : "#fff"}
+                        />
+                    </TouchableOpacity>
+                </Link>
+
             </View>
         </View>
     );
