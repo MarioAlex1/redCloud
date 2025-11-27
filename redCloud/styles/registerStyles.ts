@@ -28,7 +28,7 @@ export const registerStyles = StyleSheet.create({
     subtittle: {
         fontSize: 18,
         textAlign: 'center',
-        bottom: 90
+        bottom: 80
     },
 
     input: {
