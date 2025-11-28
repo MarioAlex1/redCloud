@@ -6,6 +6,7 @@ import { animeStyles } from "../styles/animeStyles";
 export default function AnimeDetails() {
     const [selectedSeason, setSelectedSeason] = useState(1);
     const [seasonListOpen, setSeasonListOpen] = useState(false);
+    const [liked, setLiked] = useState(false);
 
     const seasons = [1, 2, 3, 4];
 
@@ -29,7 +30,7 @@ export default function AnimeDetails() {
 
     return (
         <ScrollView style={animeStyles.screen}>
-            
+
             {/* CAPA — usando a mesma da home */}
             <Image
                 source={require("../assets/images/atackOnTitan.png")}
@@ -71,10 +72,28 @@ export default function AnimeDetails() {
                         <Text style={animeStyles.secondaryText}>Minha Lista</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={animeStyles.secondaryItem}>
-                        <AntDesign name="like" size={26} color="#fff" />
-                        <Text style={animeStyles.secondaryText}>Gostei</Text>
+                    <TouchableOpacity
+                        style={[
+                            animeStyles.secondaryItem,
+                            liked && animeStyles.likedButton  // aplica estilo quando estiver marcado
+                        ]}
+                        onPress={() => setLiked(!liked)}
+                    >
+                        <AntDesign
+                            name="like"
+                            size={26}
+                            color={liked ? "#e50914" : "#fff"}
+                        />
+                        <Text
+                            style={[
+                                animeStyles.secondaryText,
+                                liked && { color: "#e50914" } // muda o texto também
+                            ]}
+                        >
+                            Gostei
+                        </Text>
                     </TouchableOpacity>
+
 
                     <TouchableOpacity style={animeStyles.secondaryItem}>
                         <Entypo name="share" size={26} color="#fff" />

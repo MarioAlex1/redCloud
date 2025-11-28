@@ -90,6 +90,10 @@ export const animeStyles = StyleSheet.create({
         marginTop: 5,
     },
 
+    likedButton: {
+        borderColor: "#e50914",
+    },
+
     /* SELETOR DE TEMPORADAS */
     seasonSelector: {
         backgroundColor: "#111",
