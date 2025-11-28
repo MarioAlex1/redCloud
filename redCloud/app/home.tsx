@@ -34,10 +34,12 @@ export default function homePage() {
                                         <Text style={homeStyles.buttonPlayText}>Assistir</Text>
                                     </TouchableOpacity>
 
-                                    <TouchableOpacity style={homeStyles.button}>
-                                        <Feather name="info" size={22} color="#fff" />
-                                        <Text style={homeStyles.buttonText}>Info</Text>
-                                    </TouchableOpacity>
+                                    <Link href="/anime" asChild>
+                                        <TouchableOpacity style={homeStyles.button}>
+                                            <Feather name="info" size={22} color="#fff" />
+                                            <Text style={homeStyles.buttonText}>Info</Text>
+                                        </TouchableOpacity>
+                                    </Link>
                                 </View>
                             </View>
                         </ImageBackground>
