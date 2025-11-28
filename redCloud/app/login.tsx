@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { ImageBackground, View, TextInput, TouchableOpacity, Text } from "react-native";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { loginStyles } from "../styles/loginStyles";
-import Checkbox from "expo-checkbox"; //o botão de lembre-me
+import Checkbox from "expo-checkbox";
 import { AntDesign } from "@expo/vector-icons";
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 export default function LoginPage() {
     const [checked, setChecked] = useState(false);
+
+    function handleLogin() {
+        // aqui futuramente você coloca validação, chamada ao backend, loading, etc
+        router.push("/home");
+    }
 
     return (
         <>
@@ -16,16 +21,10 @@ export default function LoginPage() {
                 style={loginStyles.background}
                 resizeMode="cover"
             >
-
                 <View style={loginStyles.topCard}>
+                    <Text style={loginStyles.tittle}>Bem-vindo de volta!</Text>
 
-                    <Text style={loginStyles.tittle}>
-                        Bem-vindo de volta!
-                    </Text>
-
-                    <Text style={loginStyles.subtittle}>
-                        Entre com sua conta
-                    </Text>
+                    <Text style={loginStyles.subtittle}>Entre com sua conta</Text>
 
                     <TextInput
                         placeholder="Email ou nome de usuário"
@@ -41,7 +40,6 @@ export default function LoginPage() {
                     />
 
                     <View style={loginStyles.checkboxRow}>
-
                         <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
                             <Checkbox
                                 value={checked}
@@ -56,20 +54,15 @@ export default function LoginPage() {
                         <Link href="/forgot" style={loginStyles.forgotPasswordText}>
                             Esqueceu a senha?
                         </Link>
-
                     </View>
 
-                    <TouchableOpacity style={loginStyles.buttonCreate}>
+                    <TouchableOpacity style={loginStyles.buttonCreate} onPress={handleLogin}>
                         <Text style={loginStyles.buttonText}>Login</Text>
                     </TouchableOpacity>
 
-                    <Text style={loginStyles.menseger}>
-                        Não tem uma conta? Cadastre-se aqui
-                    </Text>
+                    <Text style={loginStyles.menseger}>Não tem uma conta? Cadastre-se aqui</Text>
 
-                    <Text style={loginStyles.mensegerContinue}>
-                        Ou continue com
-                    </Text>
+                    <Text style={loginStyles.mensegerContinue}>Ou continue com</Text>
 
                     <View style={loginStyles.socialButtons}>
                         <TouchableOpacity style={loginStyles.socialButton}>
@@ -80,9 +73,7 @@ export default function LoginPage() {
                             <AntDesign name="google" size={50} color="black" />
                         </TouchableOpacity>
                     </View>
-
                 </View>
-
             </ImageBackground>
         </>
     );
