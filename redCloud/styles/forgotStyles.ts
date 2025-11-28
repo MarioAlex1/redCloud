@@ -1,77 +1,73 @@
 import { StyleSheet } from "react-native";
 
 export const forgotStyles = StyleSheet.create({
-    background: {
+    container: {
         flex: 1,
+        backgroundColor: "#000",
         justifyContent: "center",
-        alignItems: "center",
+        paddingHorizontal: 20,
     },
 
     card: {
-        width: "85%",
+        backgroundColor: "#111",
         padding: 25,
-        borderRadius: 20,
-        backgroundColor: "#000",
-        alignItems: "center",
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: "#222",
     },
 
     title: {
-        fontSize: 26,
-        fontWeight: "700",
         color: "#fff",
-        marginTop: 10,
-        marginBottom: 10,
+        fontSize: 26,
+        fontWeight: "bold",
+        marginBottom: 15,
         textAlign: "center",
     },
 
     subtitle: {
-        fontSize: 15,
-        color: "#ccc",
+        color: "#aaa",
+        fontSize: 14,
         textAlign: "center",
-        marginBottom: 20,
+        marginBottom: 25,
         lineHeight: 20,
     },
 
     input: {
-        width: "100%",
-        height: 50,
-        backgroundColor: "#222",
-        borderRadius: 10,
-        paddingHorizontal: 15,
+        backgroundColor: "#000",
         color: "#fff",
-        fontSize: 16,
+        padding: 12,
+        borderRadius: 8,
         marginBottom: 20,
         borderWidth: 1,
-        borderColor: "#444",
+        borderColor: "#222",
     },
 
     sendButton: {
-        width: "100%",
-        height: 50,
-        borderRadius: 10,
-        backgroundColor: "#6E1F29",
-        justifyContent: "center",
+        backgroundColor: "#e50914",
+        padding: 15,
+        borderRadius: 8,
         alignItems: "center",
-        marginBottom: 20,
     },
 
     sendButtonText: {
         color: "#fff",
-        fontSize: 18,
-        fontWeight: "700",
+        fontWeight: "bold",
+        fontSize: 16,
     },
 
     bottomArea: {
+        marginTop: 25,
         flexDirection: "row",
-        gap: 6,
+        justifyContent: "center",
     },
 
     bottomText: {
-        color: "#ccc",
+        color: "#888",
+        marginRight: 6,
     },
 
     backToLoginText: {
-        color: "red",
-        fontWeight: "600",
+        color: "#e50914",
+        fontWeight: "bold",
     },
 });
