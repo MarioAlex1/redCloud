@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { ImageBackground, View, TextInput, TouchableOpacity, Text } from "react-native";
 import { registerStyles } from "../styles/registerStyles";
-import Checkbox from "expo-checkbox"; //o botão de lembre-me
+import Checkbox from "expo-checkbox";
 import { AntDesign } from "@expo/vector-icons";
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import { Link, router } from "expo-router";
 
 export default function RegisterPage() {
     const [checked, setChecked] = useState(false);
+
+    const handleRegister = () => {
+        // depois você coloca sua lógica de criar conta
+        router.push("/home"); 
+    };
 
     return (
         <>
@@ -15,7 +21,6 @@ export default function RegisterPage() {
                 style={registerStyles.background}
                 resizeMode="cover"
             >
-
                 <View style={registerStyles.topCard}>
 
                     <Text style={registerStyles.tittle}>
@@ -57,13 +62,16 @@ export default function RegisterPage() {
                         <Text style={registerStyles.checkboxLabel}>Lembrar-me</Text>
                     </View>
 
-                    <TouchableOpacity style={registerStyles.buttonCreate}>
+                    <TouchableOpacity 
+                        style={registerStyles.buttonCreate}
+                        onPress={handleRegister}
+                    >
                         <Text style={registerStyles.buttonText}>Criar Conta</Text>
                     </TouchableOpacity>
 
-                    <Text style={registerStyles.menseger}>
+                    <Link href="/login" style={registerStyles.menseger}>
                         Já tem uma conta? Faça login aqui
-                    </Text>
+                    </Link>
 
                     <Text style={registerStyles.mensegerContinue}>
                         Ou continue com
@@ -80,7 +88,6 @@ export default function RegisterPage() {
                     </View>
 
                 </View>
-
             </ImageBackground>
         </>
     );
