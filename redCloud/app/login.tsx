@@ -60,7 +60,7 @@ export default function LoginPage() {
                     </View>
 
                     <TouchableOpacity style={loginStyles.buttonCreate}>
-                        <Text style={loginStyles.buttonText}>Criar Conta</Text>
+                        <Text style={loginStyles.buttonText}>Login</Text>
                     </TouchableOpacity>
 
                     <Text style={loginStyles.menseger}>
