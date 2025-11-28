@@ -37,15 +37,19 @@ export default function User() {
                             </TouchableOpacity>
                         </Link>
 
-                        <TouchableOpacity style={UserStyles.optionRow}>
-                            <Text style={UserStyles.optionText}>Mudar email</Text>
-                            <Feather name="chevron-right" size={20} color="gray" />
-                        </TouchableOpacity>
+                        <Link href="/change-email" asChild>
+                            <TouchableOpacity style={UserStyles.optionRow}>
+                                <Text style={UserStyles.optionText}>Mudar email</Text>
+                                <Feather name="chevron-right" size={20} color="gray" />
+                            </TouchableOpacity>
+                        </Link>
 
+                        <Link href="/change-password" asChild>
                         <TouchableOpacity style={UserStyles.optionRow}>
                             <Text style={UserStyles.optionText}>Mudar senha</Text>
                             <Feather name="chevron-right" size={20} color="gray" />
                         </TouchableOpacity>
+                        </Link>
                     </View>
 
                     {/* Container 2 */}
