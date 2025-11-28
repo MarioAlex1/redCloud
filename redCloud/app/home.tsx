@@ -26,15 +26,18 @@ export default function homePage() {
                                 <View style={homeStyles.buttonsRow}>
 
                                     <Link href="/list" asChild>
-                                    <TouchableOpacity style={homeStyles.button}>
-                                        <Feather name="plus" size={22} color="#fff" />
-                                        <Text style={homeStyles.buttonTextMyList}>Minha Lista</Text>
-                                    </TouchableOpacity>
+                                        <TouchableOpacity style={homeStyles.button}>
+                                            <Feather name="plus" size={22} color="#fff" />
+                                            <Text style={homeStyles.buttonTextMyList}>Minha Lista</Text>
+                                        </TouchableOpacity>
                                     </Link>
 
-                                    <TouchableOpacity style={homeStyles.buttonPlay}>
-                                        <Text style={homeStyles.buttonPlayText}>Assistir</Text>
-                                    </TouchableOpacity>
+                                    <Link href="/player" asChild>
+                                        <TouchableOpacity style={homeStyles.buttonPlay}>
+                                            <Text style={homeStyles.buttonPlayText}>Assistir</Text>
+                                        </TouchableOpacity>
+                                    </Link>
+
 
                                     <Link href="/anime" asChild>
                                         <TouchableOpacity style={homeStyles.button}>

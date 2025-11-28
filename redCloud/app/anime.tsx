@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { Feather, AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 import { animeStyles } from "../styles/animeStyles";
+import { Link } from "expo-router";
 
 export default function AnimeDetails() {
     const [selectedSeason, setSelectedSeason] = useState(1);
@@ -54,10 +55,12 @@ export default function AnimeDetails() {
 
                 {/* BOTÕES */}
                 <View style={animeStyles.actionRow}>
+                    <Link href="/player" asChild>
                     <TouchableOpacity style={animeStyles.playButton}>
                         <Feather name="play" size={22} color="#fff" />
                         <Text style={animeStyles.buttonText}>Assistir</Text>
                     </TouchableOpacity>
+                    </Link>
 
                     <TouchableOpacity style={animeStyles.downloadButton}>
                         <Feather name="download" size={22} color="#fff" />
