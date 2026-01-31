@@ -97,8 +97,8 @@ export const homeStyles = StyleSheet.create({
 
     searchButton: {
         position: "absolute",
-        top: 70,
-        right: 10,
+        top: -450,
+        left: 300,
         backgroundColor: "rgba(0,0,0,0.6)",
         padding: 5,
         borderRadius: 50,
