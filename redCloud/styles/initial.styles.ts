@@ -13,6 +13,7 @@ export const initialStyles = StyleSheet.create({
 
     skipText: {
         color: "#ffff",
+        fontSize: 16,
     },
 
     buttonsContainer: { //isso controla o posicionamento dos botões

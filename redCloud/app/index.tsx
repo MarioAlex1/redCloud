@@ -1,39 +1,37 @@
-import React from "react";
 import { ImageBackground, View, TouchableOpacity, Text } from "react-native";
 import { Link } from "expo-router";
-import { initialStyles } from "../styles/initialStyles";
+import { initialStyles } from "../styles/initial.styles";
 
-export default function LoginPage() {
+export default function Initial() {
     return (
-        <>
-            <ImageBackground
-                source={require("../assets/images/fundoLogin.png")}
-                style={initialStyles.background}
-                resizeMode="cover"
-            >
-                {/* botão de skip */}
-                <View style={initialStyles.skipContainer}>
-                    <Link href="/home" asChild replace>
+        <ImageBackground
+            source={require("../assets/images/fundoLogin.png")}
+            style={initialStyles.background}
+            resizeMode="cover"
+        >
+            <View style={initialStyles.skipContainer}>
+                <Link href="/home" replace asChild>
                     <TouchableOpacity>
                         <Text style={initialStyles.skipText}>Pular</Text>
                     </TouchableOpacity>
-                    </Link>
-                </View>
+                </Link>
+            </View>
 
-                <View style={initialStyles.buttonsContainer}>
-                    <Link href="/login" asChild>
+            <View style={initialStyles.buttonsContainer}>
+                <Link href="/login" asChild>
                     <TouchableOpacity style={initialStyles.buttonLogin}>
                         <Text style={initialStyles.buttonText}>Login</Text>
                     </TouchableOpacity>
-                    </Link>
+                </Link>
 
-                    <Link href="/register" asChild>
+                <Link href="/register" asChild>
                     <TouchableOpacity style={initialStyles.buttonRegister}>
-                        <Text style={initialStyles.buttonTextRegister}>Registre-se</Text>
+                        <Text style={initialStyles.buttonTextRegister}>
+                            Registre-se
+                        </Text>
                     </TouchableOpacity>
-                    </Link>
-                </View>
-            </ImageBackground>
-        </>
-    )
+                </Link>
+            </View>
+        </ImageBackground>
+    );
 }
