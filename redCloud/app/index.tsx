@@ -1,6 +1,6 @@
 import { ImageBackground, View, TouchableOpacity, Text } from "react-native";
 import { Link } from "expo-router";
-import { initialStyles } from "../styles/initial.styles";
+import { initialStyles } from "../src/styles/initial.styles";
 
 export default function Initial() {
     return (
