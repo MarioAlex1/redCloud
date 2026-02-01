@@ -4,7 +4,7 @@ import { router } from "expo-router";
 export function useProcessing() {
   useEffect(() => {
     const timeout = setTimeout(() => {
-      router.replace("/success");
+      router.replace("/succes");
     }, 2500);
 
     return () => clearTimeout(timeout);

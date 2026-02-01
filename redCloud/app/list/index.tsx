@@ -6,7 +6,7 @@ import { ListStyles } from "../../src/styles/list.styles";
 import ListHeader from "./ListHeader";
 import ListTabs from "./ListTabs";
 import ListEmptyState from "./ListEmptyState";
-import ListFooter from "./ListFooter";
+import UserFooter from "../../src/components/FooterMenu";
 
 export type ListTab = "assistidos" | "naoAssistidos" | "downloads";
 
@@ -29,7 +29,7 @@ export default function ListPage() {
                     <ListEmptyState tab={activeTab} />
                 </ScrollView>
 
-                <ListFooter />
+                <UserFooter />
             </View>
         </>
     );

@@ -2,14 +2,12 @@ import { View, ScrollView } from "react-native";
 import { Stack } from "expo-router";
 import { useState } from "react";
 
-import { UserStyles } from "../../src/styles/user.styles";
-
 import UserHeader from "./UserHeader";
 import UserProfilePic from "./UserProfilePic";
 import UserAccountOptions from "./UserAccountOptions";
 import UserPreferences from "./UserPreferences";
 import UserLogout from "./UserLogout";
-import UserFooter from "./UserFooter";
+import UserFooter from "../../src/components/FooterMenu";
 
 export default function UserPage() {
     const [audio, setAudio] = useState("Português");
@@ -33,6 +31,7 @@ export default function UserPage() {
                     />
 
                     <UserLogout />
+                    <UserFooter/>
                 </ScrollView>
 
                 <UserFooter />

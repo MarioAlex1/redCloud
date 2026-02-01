@@ -11,7 +11,7 @@ export default function LoginPage() {
             <Stack.Screen options={{ headerShown: true }} />
 
             <ImageBackground
-                source={require("../../assets/images/fundoLoginRegister.png")}
+                source={require("../../src/assets/images/fundoLoginRegister.png")}
                 style={loginStyles.background}
                 resizeMode="cover"
             >

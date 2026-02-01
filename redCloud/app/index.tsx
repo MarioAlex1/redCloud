@@ -5,7 +5,7 @@ import { initialStyles } from "../src/styles/initial.styles";
 export default function Initial() {
     return (
         <ImageBackground
-            source={require("../assets/images/fundoLogin.png")}
+            source={require("../src/assets/images/fundoLogin.png")}
             style={initialStyles.background}
             resizeMode="cover"
         >

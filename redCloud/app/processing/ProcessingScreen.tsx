@@ -8,7 +8,7 @@ export default function ProcessingScreen() {
   return (
     <View style={processingStyles.container}>
       <Image
-        source={require("../../assets/images/processando.png")}
+        source={require("../../src/assets/images/processando.png")}
         style={processingStyles.image}
       />
 

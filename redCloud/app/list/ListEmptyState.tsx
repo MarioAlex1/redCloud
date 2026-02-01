@@ -5,19 +5,19 @@ import { ListTab } from "./index";
 
 const content = {
     assistidos: {
-        image: require("../../assets/images/nadaAqui.png"),
+        image: require("../../src/assets/images/nadaAqui.png"),
         title: "Opa... Nada assistido ainda",
         subtitle: "Vamos assistir algo",
         button: "Procurar",
     },
     naoAssistidos: {
-        image: require("../../assets/images/nao-assistidos.png"),
+        image: require("../../src/assets/images/nao-assistidos.png"),
         title: "Opa... Nada aqui...",
         subtitle: "Vamos adicionar algo",
         button: "Adicionar na Lista",
     },
     downloads: {
-        image: require("../../assets/images/downloads.png"),
+        image: require("../../src/assets/images/downloads.png"),
         title: "Nada baixado ainda",
         subtitle: "Baixe algum anime",
         button: "Procurar",

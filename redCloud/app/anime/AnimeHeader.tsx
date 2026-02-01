@@ -5,7 +5,7 @@ export default function AnimeHeader() {
     return (
         <>
             <Image
-                source={require("../../assets/images/atackOnTitan.png")}
+                source={require("../../src/assets/images/atackOnTitan.png")}
                 style={animeStyles.cover}
             />
 

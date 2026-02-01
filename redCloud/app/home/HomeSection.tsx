@@ -16,15 +16,15 @@ export default function HomeSection({ title }: Props) {
                 contentContainerStyle={homeStyles.cardRow}
             >
                 <Image
-                    source={require("../../assets/images/jujutsu.png")}
+                    source={require("../../src/assets/images/jujutsu.png")}
                     style={homeStyles.card}
                 />
                 <Image
-                    source={require("../../assets/images/gachiakuta.png")}
+                    source={require("../../src/assets/images/gachiakuta.png")}
                     style={homeStyles.card}
                 />
                 <Image
-                    source={require("../../assets/images/fragrantFlower.png")}
+                    source={require("../../src/assets/images/fragrantFlower.png")}
                     style={homeStyles.card}
                 />
             </ScrollView>

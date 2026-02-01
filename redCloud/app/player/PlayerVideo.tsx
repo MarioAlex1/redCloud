@@ -9,7 +9,7 @@ export default function PlayerVideo({
 }) {
     return (
         <ImageBackground
-            source={require("../../assets/images/player.png")}
+            source={require("../../src/assets/images/player.png")}
             style={playerStyles.videoArea}
             resizeMode="cover"
         >

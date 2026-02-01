@@ -4,7 +4,7 @@ import { PlanStyles } from "../../src/styles/plan.styles";
 export default function PlanBanner() {
     return (
         <Image
-            source={require("../../assets/images/primebanner.png")}
+            source={require("../../src/assets/images/primebanner.png")}
             style={PlanStyles.topImage}
         />
     );

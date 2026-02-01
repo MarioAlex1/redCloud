@@ -6,7 +6,7 @@ export default function SuccessScreen() {
   return (
     <View style={successStyles.container}>
       <Image
-        source={require("../../assets/images/success.png")}
+        source={require("../../src/assets/images/success.png")}
         style={successStyles.image}
         resizeMode="contain"
       />

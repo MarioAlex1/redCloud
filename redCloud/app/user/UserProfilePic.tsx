@@ -5,7 +5,7 @@ export default function UserProfilePic() {
     return (
         <View style={UserStyles.profilePicContainer}>
             <Image
-                source={require("../../assets/images/perfiltemp.png")}
+                source={require("../../src/assets/images/perfiltemp.png")}
                 style={UserStyles.profilePic}
             />
         </View>

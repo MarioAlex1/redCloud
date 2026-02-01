@@ -7,7 +7,7 @@ export default function HomeHeader() {
     return (
         <View style={homeStyles.ImageContainer}>
             <ImageBackground
-                source={require("../../assets/images/atackOnTitan.png")}
+                source={require("../../src/assets/images/atackOnTitan.png")}
                 style={homeStyles.titanImage}
                 resizeMode="cover"
             >
