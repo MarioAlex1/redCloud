@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "872888485741",
+    "project_id": "redcloud-b8eb8",
+    "storage_bucket": "redcloud-b8eb8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872888485741:android:f16a380b0b08036e05fc64",
+        "android_client_info": {
+          "package_name": "com.android.redcloud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAViYzzPLqwdWO6gp6-96h7V-bjW6vtlZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
