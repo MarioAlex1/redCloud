@@ -9,7 +9,7 @@ type Props = {
   onPress: () => void;
 };
 
-export function PaymentMethod({ label, selected, onPress }: Props) {
+export default function PaymentMethod({ label, selected, onPress }: Props) {
   function renderIcon() {
     if (label === "Google Play")
       return <Entypo name="google-play" size={28} color="#fff" />;

@@ -1,6 +1,6 @@
 import { ScrollView, View, Text, TextInput, TouchableOpacity } from "react-native";
 import { PaymentStyles } from "../../src/styles/payment.styles";
-import { usePayment } from "./usePayment";
+import { usePayment } from "./_hook/usePayment";
 import { PaymentMethod } from "./PaymentMethod";
 
 export default function PaymentScreen() {

@@ -1,30 +1,44 @@
-import auth from "@react-native-firebase/auth";
+import { initializeApp, getApps } from 'firebase/app';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  User,
+} from 'firebase/auth';
 
-export const register = async (email:string, password:string) => {
-    try{
-        const userCredential = await auth().createUserWithEmailAndPassword(email, password);
-        return userCredential.user;
-    } catch(error:any){
-        console.log('Erro ao registrar:', error.message);
-        throw error;
-    }
+import firebaseConfig from './firebase';
+
+if (!getApps().length) {
+  initializeApp(firebaseConfig);
 }
 
-export const login = async (email: string, password: string) => {
-  try {
-    const userCredential = await auth().signInWithEmailAndPassword(email, password);
-    return userCredential.user;
-  } catch (error: any) {
-    console.log('Erro ao logar:', error.message);
-    throw error;
-  }
+const auth = getAuth();
+
+export const register = async (
+  email: string,
+  password: string
+): Promise<User> => {
+  const userCredential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
+  return userCredential.user;
+};
+
+export const login = async (
+  email: string,
+  password: string
+): Promise<User> => {
+  const userCredential = await signInWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
+  return userCredential.user;
 };
 
 export const logout = async () => {
-  try {
-    await auth().signOut();
-  } catch (error: any) {
-    console.log('Erro ao deslogar:', error.message);
-    throw error;
-  }
+  await signOut(auth);
 };
