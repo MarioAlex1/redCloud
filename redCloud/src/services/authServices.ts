@@ -13,12 +13,13 @@ if (!getApps().length) {
   initializeApp(firebaseConfig);
 }
 
-const auth = getAuth();
+const auth = getAuth(); //cria auth
 
 export const register = async (
   email: string,
   password: string
 ): Promise<User> => {
+  // Cria um novo usuário com email e senha e retorna o objeto User do Firebase
   const userCredential = await createUserWithEmailAndPassword(
     auth,
     email,
@@ -31,6 +32,7 @@ export const login = async (
   email: string,
   password: string
 ): Promise<User> => {
+  // Faz login com email e senha e retorna o usuário autenticado
   const userCredential = await signInWithEmailAndPassword(
     auth,
     email,
@@ -40,5 +42,6 @@ export const login = async (
 };
 
 export const logout = async () => {
+  // Encerra a sessão do usuário
   await signOut(auth);
 };
