@@ -1,6 +1,6 @@
 import { View, TouchableOpacity, Text } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import FontAwesome from "@expo/vector-icons/FontAwesome5";
 import { socialStyles } from "../styles/components.styles/social.styles";
 
 interface SocialButtonsProps {
@@ -14,7 +14,7 @@ export default function SocialButtons({ message = "Ou continue com" }: SocialBut
 
       <View style={socialStyles.buttonsContainer}>
         <TouchableOpacity style={socialStyles.button}>
-          <FontAwesome5 name="facebook" size={50} color="black" />
+          <FontAwesome name="facebook" size={50} color="black" />
         </TouchableOpacity>
 
         <TouchableOpacity style={socialStyles.button}>
