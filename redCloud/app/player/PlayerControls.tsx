@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { playerStyles } from "../../src/styles/player.styles";
 import PlayerProgress from "./PlayerProgress";
 
@@ -24,8 +24,8 @@ export default function PlayerControls({
                 style={playerStyles.playButton}
                 onPress={onTogglePlay}
             >
-                <Feather
-                    name={paused ? "play" : "pause"}
+                <MaterialIcons
+                    name={paused ? "play-arrow" : "pause"}
                     size={50}
                     color="#fff"
                 />
