@@ -1,8 +1,12 @@
 import { ImageBackground, View, TouchableOpacity, Text } from "react-native";
 import { Link } from "expo-router";
-import { initialStyles } from "../src/styles/initial.styles";
+import { makeInitialStyles } from "../src/styles/initial.styles";
+import { useTheme } from "../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 export default function Initial() {
+    const { colors } = useTheme();
+    const initialStyles = useMemo(() => makeInitialStyles(colors), [colors]);
     return (
         <ImageBackground
             source={require("../src/assets/images/fundoLogin.png")}
