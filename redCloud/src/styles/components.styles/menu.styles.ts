@@ -19,4 +19,15 @@ export const menuFooter = StyleSheet.create({
         alignItems: "center",
         gap: 3,
     },
+    iconWrapper: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 55,
+        height: 44,
+        borderRadius: 22,
+    },
+
+    activeShadow: {
+        backgroundColor: 'rgba(255,255,255,0.06)',
+    },
 })

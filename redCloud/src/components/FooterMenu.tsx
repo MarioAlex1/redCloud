@@ -6,26 +6,32 @@ import { menuFooter } from "../../src/styles/components.styles/menu.styles";
 export default function UserFooter() {
     const pathname = usePathname();
 
-    const color = (path: string) =>
-        pathname === path ? "#e50914" : "#fff";
+    // ícone permanece branco; o item ativo mostrará uma sombra/backdrop
+    const color = (_path: string) => "#fff";
 
     return (
         <View style={menuFooter.footer}>
             <Link href="/home" asChild>
                 <TouchableOpacity style={menuFooter.footerButton}>
-                    <MaterialIcons name="home" size={24} color={color("/home")} />
+                    <View style={[menuFooter.iconWrapper, pathname === "/home" && menuFooter.activeShadow]}>
+                        <MaterialIcons name="home" size={24} color={color("/home")} />
+                    </View>
                 </TouchableOpacity>
             </Link>
 
             <Link href="/list" asChild>
                 <TouchableOpacity style={menuFooter.footerButton}>
-                    <MaterialIcons name="list" size={24} color={color("/list")} />
+                    <View style={[menuFooter.iconWrapper, pathname === "/list" && menuFooter.activeShadow]}>
+                        <MaterialIcons name="list" size={24} color={color("/list")} />
+                    </View>
                 </TouchableOpacity>
             </Link>
 
             <Link href="/user" asChild>
                 <TouchableOpacity style={menuFooter.footerButton}>
-                    <MaterialIcons name="account-circle" size={24} color={color("/user")} />
+                    <View style={[menuFooter.iconWrapper, pathname === "/user" && menuFooter.activeShadow]}>
+                        <MaterialIcons name="account-circle" size={24} color={color("/user")} />
+                    </View>
                 </TouchableOpacity>
             </Link>
         </View>
