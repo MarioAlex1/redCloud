@@ -1,5 +1,5 @@
 import { View, TouchableOpacity, Text } from "react-native";
-import { Feather, AntDesign, Entypo } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { animeStyles } from "../../src/styles/anime.styles";
 
 export default function AnimeSecondaryActions({
@@ -12,7 +12,7 @@ export default function AnimeSecondaryActions({
     return (
         <View style={animeStyles.secondaryActions}>
             <TouchableOpacity style={animeStyles.secondaryItem}>
-                <Feather name="plus" size={26} color="#fff" />
+                <MaterialIcons name="add" size={26} color="#fff" />
                 <Text style={animeStyles.secondaryText}>Minha Lista</Text>
             </TouchableOpacity>
 
@@ -20,8 +20,8 @@ export default function AnimeSecondaryActions({
                 style={animeStyles.secondaryItem}
                 onPress={onToggleLike}
             >
-                <AntDesign
-                    name="like"
+                <MaterialIcons
+                    name="thumb-up"
                     size={26}
                     color={liked ? "#e50914" : "#fff"}
                 />
@@ -36,7 +36,7 @@ export default function AnimeSecondaryActions({
             </TouchableOpacity>
 
             <TouchableOpacity style={animeStyles.secondaryItem}>
-                <Entypo name="share" size={26} color="#fff" />
+                <MaterialIcons name="share" size={26} color="#fff" />
                 <Text style={animeStyles.secondaryText}>Compartilhar</Text>
             </TouchableOpacity>
         </View>
