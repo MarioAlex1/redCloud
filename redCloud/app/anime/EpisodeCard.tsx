@@ -1,6 +1,6 @@
 // EpisodeCard.tsx
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { animeStyles } from "../../src/styles/anime.styles";
 
 export default function EpisodeCard({ episode }: any) {
@@ -17,7 +17,7 @@ export default function EpisodeCard({ episode }: any) {
             </View>
 
             <TouchableOpacity>
-                <Feather name="download" size={24} color="#fff" />
+                <MaterialIcons name="download" size={24} color="#fff" />
             </TouchableOpacity>
         </View>
     );
