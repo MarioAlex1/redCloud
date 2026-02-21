@@ -1,9 +1,13 @@
 import { View, TouchableOpacity, Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Link } from "expo-router";
-import { animeStyles } from "../../src/styles/anime.styles";
+import { makeAnimeStyles } from "../../src/styles/anime.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 export default function AnimeActions() {
+    const { colors } = useTheme();
+    const animeStyles = useMemo(() => makeAnimeStyles(colors), [colors]);
     return (
         <View style={animeStyles.actionRow}>
             <Link href="/player" asChild>

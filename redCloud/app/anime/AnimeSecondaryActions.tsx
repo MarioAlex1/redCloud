@@ -1,6 +1,8 @@
 import { View, TouchableOpacity, Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { animeStyles } from "../../src/styles/anime.styles";
+import { makeAnimeStyles } from "../../src/styles/anime.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 export default function AnimeSecondaryActions({
     liked,
@@ -9,6 +11,8 @@ export default function AnimeSecondaryActions({
     liked: boolean;
     onToggleLike: () => void;
 }) {
+    const { colors } = useTheme();
+    const animeStyles = useMemo(() => makeAnimeStyles(colors), [colors]);
     return (
         <View style={animeStyles.secondaryActions}>
             <TouchableOpacity style={animeStyles.secondaryItem}>
@@ -23,7 +27,7 @@ export default function AnimeSecondaryActions({
                 <MaterialIcons
                     name="thumb-up"
                     size={26}
-                    color={liked ? "#e50914" : "#fff"}
+                    color={liked ? "#e50914" : colors.text}
                 />
                 <Text
                     style={[

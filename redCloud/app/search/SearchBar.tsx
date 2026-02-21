@@ -1,8 +1,12 @@
 import { View, TextInput, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { SearchStyles } from "../../src/styles/search.styles";
+import { makeSearchStyles } from "../../src/styles/search.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 export default function SearchBar() {
+    const { colors } = useTheme();
+    const SearchStyles = useMemo(() => makeSearchStyles(colors), [colors]);
     return (
         <View style={SearchStyles.searchBar}>
             <TextInput
@@ -12,7 +16,7 @@ export default function SearchBar() {
             />
 
             <TouchableOpacity style={SearchStyles.voiceButton}>
-                <MaterialIcons name="mic" size={24} color="#fff" />
+                <MaterialIcons name="mic" size={24} color={colors.text} />
             </TouchableOpacity>
         </View>
     );

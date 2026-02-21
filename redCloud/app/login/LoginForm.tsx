@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { View, TextInput, TouchableOpacity, Text, Alert } from "react-native";
 import Checkbox from "expo-checkbox";
 import { Link, router } from "expo-router";
-import { loginStyles } from "../../src/styles/login.styles";
+import { makeLoginStyles } from "../../src/styles/login.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
 import SocialButtons from "../../src/components/SocialButton";
 
 import * as authStorage from '../../src/storage/authStorage';
 import * as authService from '../../src/services/authServices';
 
 export default function LoginForm() {
+  const { colors } = useTheme();
+  const loginStyles = useMemo(() => makeLoginStyles(colors), [colors]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);

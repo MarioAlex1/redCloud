@@ -1,8 +1,12 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { router } from "expo-router";
-import { successStyles } from "../../src/styles/success.styles";
+import { makeSuccessStyles } from "../../src/styles/success.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 export default function SuccessScreen() {
+  const { colors } = useTheme();
+  const successStyles = useMemo(() => makeSuccessStyles(colors), [colors]);
   return (
     <View style={successStyles.container}>
       <Image

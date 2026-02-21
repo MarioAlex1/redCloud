@@ -1,14 +1,17 @@
 import { View } from "react-native";
 import { Stack } from "expo-router";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
-import { forgotStyles } from "../../src/styles/forgot.styles";
+import { makeForgotStyles } from "../../src/styles/forgot.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
 
 import ForgotHeader from "./ForgotHeader";
 import ForgotForm from "./ForgotForm";
 import ForgotActions from "./ForgotActions";
 
 export default function ForgotPasswordPage() {
+    const { colors } = useTheme();
+    const forgotStyles = useMemo(() => makeForgotStyles(colors), [colors]);
     const [email, setEmail] = useState("");
 
     const handleSend = () => {

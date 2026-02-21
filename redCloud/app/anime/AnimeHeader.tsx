@@ -1,7 +1,11 @@
 import { View, Text, Image } from "react-native";
-import { animeStyles } from "../../src/styles/anime.styles";
+import { makeAnimeStyles } from "../../src/styles/anime.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 export default function AnimeHeader() {
+    const { colors } = useTheme();
+    const animeStyles = useMemo(() => makeAnimeStyles(colors), [colors]);
     return (
         <>
             <Image

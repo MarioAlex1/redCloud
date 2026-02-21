@@ -1,9 +1,13 @@
 import { ScrollView, View, Text, TextInput, TouchableOpacity } from "react-native";
-import { PaymentStyles } from "../../src/styles/payment.styles";
+import { makePaymentStyles } from "../../src/styles/payment.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 import { usePayment } from "./_hook/usePayment";
 import PaymentMethod from "./PaymentMethod";
 
 export default function PaymentScreen() {
+  const { colors } = useTheme();
+  const PaymentStyles = useMemo(() => makePaymentStyles(colors), [colors]);
   const {
     selectedMethod,
     setSelectedMethod,
@@ -14,7 +18,7 @@ export default function PaymentScreen() {
   } = usePayment();
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "#000" }}>
+    <ScrollView style={{ flex: 1, backgroundColor: colors.bg }}>
       <Text style={PaymentStyles.title}>Forma de Pagamento</Text>
 
       <View style={PaymentStyles.giftContainer}>

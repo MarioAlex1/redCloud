@@ -1,5 +1,7 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import { ListStyles } from "../../src/styles/list.styles";
+import { makeListStyles } from "../../src/styles/list.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 import { ListTab } from "./index";
 
 interface Props {
@@ -8,24 +10,29 @@ interface Props {
 }
 
 export default function ListTabs({ activeTab, onChange }: Props) {
+    const { colors } = useTheme();
+    const ListStyles = useMemo(() => makeListStyles(colors), [colors]);
     return (
         <View style={ListStyles.optionsRow}>
             <TabButton
                 label="Assistidos"
                 active={activeTab === "assistidos"}
                 onPress={() => onChange("assistidos")}
+                styles={ListStyles}
             />
 
             <TabButton
                 label="Não Assistidos"
                 active={activeTab === "naoAssistidos"}
                 onPress={() => onChange("naoAssistidos")}
+                styles={ListStyles}
             />
 
             <TabButton
                 label="Downloads"
                 active={activeTab === "downloads"}
                 onPress={() => onChange("downloads")}
+                styles={ListStyles}
             />
         </View>
     );
@@ -35,20 +42,22 @@ function TabButton({
     label,
     active,
     onPress,
+    styles,
 }: {
     label: string;
     active: boolean;
     onPress: () => void;
+    styles: ReturnType<typeof makeListStyles>;
 }) {
     return (
         <TouchableOpacity
             style={[
-                ListStyles.optionButton,
-                active && ListStyles.activeOption,
+                styles.optionButton,
+                active && styles.activeOption,
             ]}
             onPress={onPress}
         >
-            <Text style={ListStyles.optionText}>{label}</Text>
+            <Text style={styles.optionText}>{label}</Text>
         </TouchableOpacity>
     );
 }

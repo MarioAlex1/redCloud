@@ -1,6 +1,8 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
-import { ListStyles } from "../../src/styles/list.styles";
+import { makeListStyles } from "../../src/styles/list.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 import { ListTab } from "./index";
 
 const content = {
@@ -25,6 +27,8 @@ const content = {
 };
 
 export default function ListEmptyState({ tab }: { tab: ListTab }) {
+    const { colors } = useTheme();
+    const ListStyles = useMemo(() => makeListStyles(colors), [colors]);
     const data = content[tab];
 
     return (

@@ -1,5 +1,7 @@
 import { TextInput } from "react-native";
-import { forgotStyles } from "../../src/styles/forgot.styles";
+import { makeForgotStyles } from "../../src/styles/forgot.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 interface Props {
     email: string;
@@ -7,6 +9,8 @@ interface Props {
 }
 
 export default function ForgotForm({ email, onChangeEmail }: Props) {
+    const { colors } = useTheme();
+    const forgotStyles = useMemo(() => makeForgotStyles(colors), [colors]);
     return (
         <TextInput
             value={email}

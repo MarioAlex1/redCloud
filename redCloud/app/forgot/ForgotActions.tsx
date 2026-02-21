@@ -1,12 +1,16 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
-import { forgotStyles } from "../../src/styles/forgot.styles";
+import { makeForgotStyles } from "../../src/styles/forgot.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 export default function ForgotActions({
     onSend,
 }: {
     onSend: () => void;
 }) {
+    const { colors } = useTheme();
+    const forgotStyles = useMemo(() => makeForgotStyles(colors), [colors]);
     return (
         <>
             <TouchableOpacity

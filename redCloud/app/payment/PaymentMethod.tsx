@@ -1,6 +1,8 @@
 import { TouchableOpacity, Text } from "react-native";
 import { Entypo, MaterialIcons } from "@expo/vector-icons";
-import { PaymentStyles } from "../../src/styles/payment.styles";
+import { makePaymentStyles } from "../../src/styles/payment.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 type Props = {
   id: string;
@@ -10,12 +12,14 @@ type Props = {
 };
 
 export default function PaymentMethod({ label, selected, onPress }: Props) {
+  const { colors } = useTheme();
+  const PaymentStyles = useMemo(() => makePaymentStyles(colors), [colors]);
   function renderIcon() {
     if (label === "Google Play")
-      return <Entypo name="google-play" size={28} color="#fff" />;
+      return <Entypo name="google-play" size={28} color={colors.text} />;
     if (label === "Cartão")
-      return <MaterialIcons name="credit-card" size={28} color="#fff" />;
-    return <MaterialIcons name="pix" size={32} color="#fff" />;
+      return <MaterialIcons name="credit-card" size={28} color={colors.text} />;
+    return <MaterialIcons name="pix" size={32} color={colors.text} />;
   }
 
   return (
@@ -33,7 +37,7 @@ export default function PaymentMethod({ label, selected, onPress }: Props) {
       <MaterialIcons
         name={selected ? "check-circle" : "circle"}
         size={24}
-        color={selected ? "#E50914" : "#888"}
+        color={selected ? "#E50914" : colors.textMuted}
       />
     </TouchableOpacity>
   );

@@ -1,14 +1,17 @@
 import { View, TouchableWithoutFeedback } from "react-native";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { StatusBar } from "expo-status-bar";
 import * as ScreenOrientation from "expo-screen-orientation";
 import * as NavigationBar from "expo-navigation-bar";
 
-import { playerStyles } from "../../src/styles/player.styles";
+import { makePlayerStyles } from "../../src/styles/player.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
 import PlayerVideo from "./PlayerVideo";
 import PlayerControls from "./PlayerControls";
 
 export default function PlayerPage() {
+    const { colors } = useTheme();
+    const playerStyles = useMemo(() => makePlayerStyles(colors), [colors]);
     const [paused, setPaused] = useState(false);
     const [progress, setProgress] = useState(0.1);
     const [showControls, setShowControls] = useState(true);

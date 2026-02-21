@@ -1,9 +1,13 @@
 // EpisodeCard.tsx
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { animeStyles } from "../../src/styles/anime.styles";
+import { makeAnimeStyles } from "../../src/styles/anime.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 export default function EpisodeCard({ episode }: any) {
+    const { colors } = useTheme();
+    const animeStyles = useMemo(() => makeAnimeStyles(colors), [colors]);
     return (
         <View style={animeStyles.episodeCard}>
             <Image source={episode.image} style={animeStyles.episodeImage} />
@@ -17,7 +21,7 @@ export default function EpisodeCard({ episode }: any) {
             </View>
 
             <TouchableOpacity>
-                <MaterialIcons name="download" size={24} color="#fff" />
+                <MaterialIcons name="download" size={24} color={colors.text} />
             </TouchableOpacity>
         </View>
     );

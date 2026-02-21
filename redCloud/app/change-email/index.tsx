@@ -1,12 +1,14 @@
 import { View, ScrollView } from "react-native";
 import { Stack } from "expo-router";
-import { useState } from "react";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useState, useMemo } from "react";
 
 import ChangeEmailHeader from "./ChangeEmailHeader";
 import ChangeEmailForm from "./ChangeEmailForm";
 import ChangeEmailActions from "./ChangeEmailActions";
 
 export default function ChangeEmailPage() {
+    const { colors } = useTheme();
     const [currentEmail, setCurrentEmail] = useState("");
     const [newEmail, setNewEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -29,7 +31,7 @@ export default function ChangeEmailPage() {
         <>
             <Stack.Screen options={{ headerShown: false }} />
 
-            <View style={{ flex: 1, backgroundColor: "#000" }}>
+            <View style={{ flex: 1, backgroundColor: colors.bg }}>
                 <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
                     <ChangeEmailHeader />
 

@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { View, TextInput, TouchableOpacity, Text, Alert } from "react-native";
 import Checkbox from "expo-checkbox";
 import { router } from "expo-router";
-import { registerStyles } from "../../src/styles/register.styles";
+import { makeRegisterStyles } from "../../src/styles/register.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
 import SocialButtons from "../../src/components/SocialButton";
 
 import * as authStorage from '../../src/storage/authStorage';
 import * as authService from '../../src/services/authServices';
 
 export default function RegisterForm() {
+  const { colors } = useTheme();
+  const registerStyles = useMemo(() => makeRegisterStyles(colors), [colors]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');

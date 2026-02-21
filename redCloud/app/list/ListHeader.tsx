@@ -1,9 +1,12 @@
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
-import { ListStyles } from "../../src/styles/list.styles";
+import { makeListStyles } from "../../src/styles/list.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
 
 export default function ListHeader() {
+    const { colors } = useTheme();
+    const ListStyles = useMemo(() => makeListStyles(colors), [colors]);
     const [searchOpen, setSearchOpen] = useState(false);
 
     return (
@@ -12,7 +15,7 @@ export default function ListHeader() {
                 <Text style={ListStyles.title}>Minha Lista</Text>
 
                 <TouchableOpacity onPress={() => setSearchOpen(!searchOpen)}>
-                    <MaterialIcons name="search" size={30} color="#fff" />
+                    <MaterialIcons name="search" size={30} color={colors.text} />
                 </TouchableOpacity>
             </View>
 

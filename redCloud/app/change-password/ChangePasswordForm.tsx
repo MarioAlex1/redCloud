@@ -1,5 +1,7 @@
 import { View, Text, TextInput } from "react-native";
-import { ChangePasswordStyles } from "../../src/styles/change-password.styles";
+import { makeChangePasswordStyles } from "../../src/styles/change-password.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 interface Props {
     currentPassword: string;
@@ -20,6 +22,8 @@ export default function ChangePasswordForm({
     onChangeNew,
     onChangeConfirm,
 }: Props) {
+    const { colors } = useTheme();
+    const ChangePasswordStyles = useMemo(() => makeChangePasswordStyles(colors), [colors]);
     return (
         <View>
             <Text style={ChangePasswordStyles.label}>Senha atual</Text>

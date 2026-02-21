@@ -1,5 +1,7 @@
 import { View, Text, TextInput } from "react-native";
-import { ChangeEmailStyles } from "../../src/styles/change-email.styles";
+import { makeChangeEmailStyles } from "../../src/styles/change-email.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 interface Props {
     currentEmail: string;
@@ -16,6 +18,8 @@ export default function ChangeEmailForm({
     onChangeCurrent,
     onChangeNew,
 }: Props) {
+    const { colors } = useTheme();
+    const ChangeEmailStyles = useMemo(() => makeChangeEmailStyles(colors), [colors]);
     return (
         <View>
             <Text style={ChangeEmailStyles.label}>Email atual</Text>

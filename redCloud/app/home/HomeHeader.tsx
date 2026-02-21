@@ -1,9 +1,13 @@
 import { View, Text, ImageBackground, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
-import { homeStyles } from "../../src/styles/home.styles";
+import { makeHomeStyles } from "../../src/styles/home.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 export default function HomeHeader() {
+    const { colors } = useTheme();
+    const homeStyles = useMemo(() => makeHomeStyles(colors), [colors]);
     return (
         <View style={homeStyles.ImageContainer}>
             <ImageBackground

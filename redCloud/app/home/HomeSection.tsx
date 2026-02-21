@@ -1,11 +1,15 @@
 import { View, Text, ScrollView, Image } from "react-native";
-import { homeStyles } from "../../src/styles/home.styles";
+import { makeHomeStyles } from "../../src/styles/home.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 interface Props {
     title: string;
 }
 
 export default function HomeSection({ title }: Props) {
+    const { colors } = useTheme();
+    const homeStyles = useMemo(() => makeHomeStyles(colors), [colors]);
     return (
         <View style={homeStyles.section}>
             <Text style={homeStyles.sectionTitle}>{title}</Text>

@@ -1,6 +1,8 @@
 import { View, TouchableOpacity, Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { animeStyles } from "../../src/styles/anime.styles";
+import { makeAnimeStyles } from "../../src/styles/anime.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 const seasons = [1, 2, 3, 4];
 
@@ -10,6 +12,8 @@ export default function SeasonSelector({
     onToggle,
     onSelectSeason,
 }: any) {
+    const { colors } = useTheme();
+    const animeStyles = useMemo(() => makeAnimeStyles(colors), [colors]);
     return (
         <>
             <TouchableOpacity
@@ -22,7 +26,7 @@ export default function SeasonSelector({
                 <MaterialIcons
                     name={open ? "keyboard-arrow-up" : "keyboard-arrow-down"}
                     size={24}
-                    color="#fff"
+                    color={colors.text}
                 />
             </TouchableOpacity>
 

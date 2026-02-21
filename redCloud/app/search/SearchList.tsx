@@ -1,8 +1,12 @@
 import { View, Text } from "react-native";
-import { SearchStyles } from "../../src/styles/search.styles";
+import { makeSearchStyles } from "../../src/styles/search.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 import SearchItem from "./SearchItem";
 
 export default function SearchList() {
+    const { colors } = useTheme();
+    const SearchStyles = useMemo(() => makeSearchStyles(colors), [colors]);
     return (
         <>
             <View style={SearchStyles.titleContainer}>

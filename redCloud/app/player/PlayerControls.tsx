@@ -1,6 +1,8 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { playerStyles } from "../../src/styles/player.styles";
+import { makePlayerStyles } from "../../src/styles/player.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 import PlayerProgress from "./PlayerProgress";
 
 interface Props {
@@ -14,6 +16,8 @@ export default function PlayerControls({
     progress,
     onTogglePlay,
 }: Props) {
+    const { colors } = useTheme();
+    const playerStyles = useMemo(() => makePlayerStyles(colors), [colors]);
     return (
         <View style={playerStyles.controls}>
             <Text style={playerStyles.episodeTitle}>
