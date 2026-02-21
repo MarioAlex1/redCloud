@@ -1,9 +1,13 @@
 import { View, TouchableOpacity } from "react-native";
 import { Link, usePathname } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
-import { menuFooter } from "../../src/styles/components.styles/menu.styles";
+import { makeMenuFooter } from "../../src/styles/components.styles/menu.styles";
+import { useTheme } from "../theme/ThemeContext";
+import { useMemo } from "react";
 
 export default function UserFooter() {
+    const { colors } = useTheme();
+    const menuFooter = useMemo(() => makeMenuFooter(colors), [colors]);
     const pathname = usePathname();
 
     // ícone permanece branco; o item ativo mostrará uma sombra/backdrop
