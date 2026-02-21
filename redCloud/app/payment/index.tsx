@@ -1,5 +1,2 @@
-import PaymentScreen from "./PaymentScreen";
-
-export default function Payment() {
-  return <PaymentScreen />;
-}
+import PaymentScreen from "../../src/features/payment/screens/PaymentScreen";
+export default PaymentScreen;
