@@ -1,6 +1,6 @@
 import { View, Text, ImageBackground, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
-import { Feather, EvilIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { homeStyles } from "../../src/styles/home.styles";
 
 export default function HomeHeader() {
@@ -15,13 +15,13 @@ export default function HomeHeader() {
                     <View style={homeStyles.buttonsRow}>
                         <Link href="/search" asChild>
                             <TouchableOpacity style={homeStyles.searchButton}>
-                                <EvilIcons name="search" size={35} color="white" />
+                                <MaterialIcons name="search" size={30} color="white" />
                             </TouchableOpacity>
                         </Link>
 
                         <Link href="/list" asChild>
                             <TouchableOpacity style={homeStyles.button}>
-                                <Feather name="plus" size={22} color="#fff" />
+                                <MaterialIcons name="add" size={25} color="#fff" />
                                 <Text style={homeStyles.buttonTextMyList}>
                                     Minha Lista
                                 </Text>
@@ -38,7 +38,7 @@ export default function HomeHeader() {
 
                         <Link href="/anime" asChild>
                             <TouchableOpacity style={homeStyles.button}>
-                                <Feather name="info" size={22} color="#fff" />
+                                <MaterialIcons name="info" size={22} color="#fff" />
                                 <Text style={homeStyles.buttonText}>Info</Text>
                             </TouchableOpacity>
                         </Link>
