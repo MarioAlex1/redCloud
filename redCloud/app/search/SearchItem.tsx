@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { SearchStyles } from "../../src/styles/search.styles";
 
 interface Props {
@@ -15,7 +15,7 @@ export default function SearchItem({ title, image }: Props) {
             <Text style={SearchStyles.itemTitle}>{title}</Text>
 
             <TouchableOpacity>
-                <AntDesign name="play-circle" size={24} color="white" />
+                <MaterialIcons name="play-circle" size={24} color="white" />
             </TouchableOpacity>
         </View>
     );

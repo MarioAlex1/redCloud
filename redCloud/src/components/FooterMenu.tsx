@@ -1,6 +1,6 @@
 import { View, TouchableOpacity } from "react-native";
 import { Link, usePathname } from "expo-router";
-import { Feather } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { menuFooter } from "../../src/styles/components.styles/menu.styles";
 
 export default function UserFooter() {
@@ -13,19 +13,19 @@ export default function UserFooter() {
         <View style={menuFooter.footer}>
             <Link href="/home" asChild>
                 <TouchableOpacity style={menuFooter.footerButton}>
-                    <Feather name="home" size={24} color={color("/home")} />
+                    <MaterialIcons name="home" size={24} color={color("/home")} />
                 </TouchableOpacity>
             </Link>
 
             <Link href="/list" asChild>
                 <TouchableOpacity style={menuFooter.footerButton}>
-                    <Feather name="list" size={24} color={color("/list")} />
+                    <MaterialIcons name="list" size={24} color={color("/list")} />
                 </TouchableOpacity>
             </Link>
 
             <Link href="/user" asChild>
                 <TouchableOpacity style={menuFooter.footerButton}>
-                    <Feather name="user" size={24} color={color("/user")} />
+                    <MaterialIcons name="account-circle" size={24} color={color("/user")} />
                 </TouchableOpacity>
             </Link>
         </View>

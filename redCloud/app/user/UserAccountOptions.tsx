@@ -1,6 +1,6 @@
 import { View, TouchableOpacity, Text } from "react-native";
 import { Link } from "expo-router";
-import { Feather } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { UserStyles } from "../../src/styles/user.styles";
 
 export default function UserAccountOptions() {
@@ -18,7 +18,7 @@ function Option({ href, label }: { href: string; label: string }) {
         <Link href={href} asChild>
             <TouchableOpacity style={UserStyles.optionRow}>
                 <Text style={UserStyles.optionText}>{label}</Text>
-                <Feather name="chevron-right" size={20} color="gray" />
+                <MaterialIcons name="chevron-right" size={20} color="gray" />
             </TouchableOpacity>
         </Link>
     );

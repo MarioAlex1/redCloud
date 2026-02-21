@@ -1,5 +1,5 @@
 import { View, TouchableOpacity, Text } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { UserStyles } from "../../src/styles/user.styles";
 
 interface Props {
@@ -24,7 +24,7 @@ export default function UserPreferences({
                 }
             >
                 <Text style={UserStyles.optionText}>Áudio: {audio}</Text>
-                <Feather name="chevron-right" size={20} color="gray" />
+                <MaterialIcons name="chevron-right" size={20} color="gray" />
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -34,7 +34,7 @@ export default function UserPreferences({
                 }
             >
                 <Text style={UserStyles.optionText}>Legenda: {subtitle}</Text>
-                <Feather name="chevron-right" size={20} color="gray" />
+                <MaterialIcons name="chevron-right" size={20} color="gray" />
             </TouchableOpacity>
         </View>
     );
