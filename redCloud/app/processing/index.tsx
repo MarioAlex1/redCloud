@@ -1,5 +1,2 @@
-import ProcessingScreen from "./ProcessingScreen";
-
-export default function Processing() {
-  return <ProcessingScreen />;
-}
+import ProcessingScreen from "../../src/features/payment/screens/ProcessingScreen";
+export default ProcessingScreen;
