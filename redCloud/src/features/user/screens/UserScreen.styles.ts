@@ -1,0 +1,65 @@
+import { StyleSheet } from "react-native";
+import { Colors } from "../../../theme/colors";
+
+export function makeUserStyles(c: Colors) {
+    return StyleSheet.create({
+    title: {
+        color: c.text,
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: 90,
+        marginBottom: 20,
+    },
+
+    profilePicContainer: {
+        alignItems: 'center',
+        marginBottom: 40,
+    },
+
+    profilePic: {
+        width: 120,
+        height: 120,
+        borderRadius: 60,
+        borderWidth: 2,
+    },
+
+    container: {
+        backgroundColor: c.surface,
+        marginHorizontal: 20,
+        borderRadius: 12,
+        marginBottom: 40,
+        paddingVertical: 10,
+    },
+
+    optionRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingHorizontal: 15,
+        paddingVertical: 15,
+    },
+
+    optionText: {
+        color: '#000',
+        fontSize: 16,
+    },
+
+    logoutButton: {
+        backgroundColor: '#6E1F29',
+        width: 150,
+        alignSelf: 'center',
+        marginHorizontal: 20,
+        borderRadius: 18,
+        paddingVertical: 12,
+        alignItems: 'center',
+        marginTop: 10,
+    },
+
+    logoutButtonText: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
+    });
+}
