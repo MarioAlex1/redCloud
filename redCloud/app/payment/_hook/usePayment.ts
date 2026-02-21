@@ -7,7 +7,7 @@ export function usePayment() {
 
   const methods = [
     { id: "google", label: "Google Play", icon: "google" },
-    { id: "mastercard", label: "Mastercard", icon: "mastercard" },
+    { id: "cartao", label: "Cartão", icon: "cartao" },
     { id: "pix", label: "Pix", icon: "pix" },
   ];
 
