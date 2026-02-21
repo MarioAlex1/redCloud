@@ -12,7 +12,7 @@ export const SearchStyles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         backgroundColor: "#1a1a1a",
-        borderRadius: 12,
+        borderRadius: 25,
         paddingHorizontal: 15,
         height: 50,
         marginBottom: 20,
@@ -51,7 +51,7 @@ export const SearchStyles = StyleSheet.create({
         paddingVertical: 12,
         paddingLeft: 8,
         paddingRight: 20,
-        borderRadius: 12,
+        borderRadius: 30,
     },
 
     itemImage: {
