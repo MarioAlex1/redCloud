@@ -1,7 +1,11 @@
 import { View, Image } from "react-native";
-import { UserStyles } from "../../src/styles/user.styles";
+import { makeUserStyles } from "../../src/styles/user.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 export default function UserProfilePic() {
+    const { colors } = useTheme();
+    const UserStyles = useMemo(() => makeUserStyles(colors), [colors]);
     return (
         <View style={UserStyles.profilePicContainer}>
             <Image

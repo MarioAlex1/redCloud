@@ -1,11 +1,15 @@
 import { TouchableOpacity, Text, Alert } from "react-native";
 import { router } from "expo-router";
-import { UserStyles } from "../../src/styles/user.styles";
+import { makeUserStyles } from "../../src/styles/user.styles";
+import { useTheme } from "../../src/theme/ThemeContext";
+import { useMemo } from "react";
 
 import * as authService from "../../src/services/authServices";
 import * as authStorage from "../../src/storage/authStorage";
 
 export default function UserLogout() {
+  const { colors } = useTheme();
+  const UserStyles = useMemo(() => makeUserStyles(colors), [colors]);
   const handleLogout = async () => {
     try {
       await authService.logout();      // Firebase Auth

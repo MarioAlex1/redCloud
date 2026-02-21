@@ -1,6 +1,6 @@
 import { View, ScrollView } from "react-native";
 import { Stack } from "expo-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import UserHeader from "./UserHeader";
 import UserProfilePic from "./UserProfilePic";
@@ -10,8 +10,10 @@ import UserLogout from "./UserLogout";
 import UserFooter from "../../src/components/FooterMenu";
 
 import * as authStorage from '../../src/storage/authStorage';
+import { useTheme } from '../../src/theme/ThemeContext';
 
 export default function UserPage() {
+    const { colors } = useTheme();
     const [audio, setAudio] = useState("Português");
     const [subtitle, setSubtitle] = useState("N/A");
 
@@ -36,7 +38,7 @@ export default function UserPage() {
         <>
             <Stack.Screen options={{ headerShown: false }} />
 
-            <View style={{ flex: 1, backgroundColor: "#000" }}>
+            <View style={{ flex: 1, backgroundColor: colors.bg }}>
                 <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
                     <UserHeader />
                     <UserProfilePic />
