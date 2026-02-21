@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import { useState } from "react";
-import { EvilIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { ListStyles } from "../../src/styles/list.styles";
 
 export default function ListHeader() {
@@ -12,7 +12,7 @@ export default function ListHeader() {
                 <Text style={ListStyles.title}>Minha Lista</Text>
 
                 <TouchableOpacity onPress={() => setSearchOpen(!searchOpen)}>
-                    <EvilIcons name="search" size={30} color="#fff" />
+                    <MaterialIcons name="search" size={30} color="#fff" />
                 </TouchableOpacity>
             </View>
 
