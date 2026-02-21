@@ -1,6 +1,8 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const PlanStyles = StyleSheet.create({
+export function makePlanStyles(c: Colors) {
+    return StyleSheet.create({
     topImage: {
         width: "100%",
         height: "60%",
@@ -10,7 +12,7 @@ export const PlanStyles = StyleSheet.create({
 
     title: {
         textAlign: "center",
-        color: "#fff",
+        color: c.text,
         fontSize: 26,
         fontWeight: "bold",
         marginTop: 30,
@@ -19,7 +21,7 @@ export const PlanStyles = StyleSheet.create({
     },
 
     benefitsContainer: {
-        backgroundColor: "#1a1a1a",
+        backgroundColor: c.bgCard,
         marginHorizontal: 20,
         paddingVertical: 20,
         borderRadius: 12,
@@ -34,7 +36,7 @@ export const PlanStyles = StyleSheet.create({
     },
 
     text: {
-        color: "#fff",
+        color: c.text,
         fontSize: 16,
     },
 
@@ -50,8 +52,9 @@ export const PlanStyles = StyleSheet.create({
     },
 
     subscribeButtonText: {
-        color: "#fff",
+        color: '#fff',
         fontSize: 18,
         fontWeight: "bold",
     },
-});
+    });
+}

@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const processingStyles = StyleSheet.create({
+export function makeProcessingStyles(c: Colors) {
+    return StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: c.bg,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -15,9 +17,10 @@ export const processingStyles = StyleSheet.create({
   },
 
   title: {
-    color: "#fff",
+    color: c.text,
     fontSize: 22,
     fontWeight: "bold",
     marginBottom: 15,
   },
-});
+  });
+}

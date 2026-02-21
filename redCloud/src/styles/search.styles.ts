@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const SearchStyles = StyleSheet.create({
+export function makeSearchStyles(c: Colors) {
+    return StyleSheet.create({
     screen: {
         flex: 1,
-        backgroundColor: "#000",
+        backgroundColor: c.bg,
         paddingHorizontal: 20,
         paddingTop: 30,
     },
@@ -11,7 +13,7 @@ export const SearchStyles = StyleSheet.create({
     searchBar: {
         flexDirection: "row",
         alignItems: "center",
-        backgroundColor: "#1a1a1a",
+        backgroundColor: c.bgCard,
         borderRadius: 25,
         paddingHorizontal: 15,
         height: 50,
@@ -21,7 +23,7 @@ export const SearchStyles = StyleSheet.create({
 
     searchInput: {
         flex: 1,
-        color: "#fff",
+        color: c.text,
         fontSize: 16,
     },
 
@@ -35,7 +37,7 @@ export const SearchStyles = StyleSheet.create({
     },
 
     title: {
-        color: "#fff",
+        color: c.text,
         fontSize: 22,
         fontWeight: "bold",
     },
@@ -57,16 +59,17 @@ export const SearchStyles = StyleSheet.create({
     itemImage: {
         width: 60,
         height: 60,
-        backgroundColor: "#333",
+        backgroundColor: c.bgChip,
         borderRadius: 8,
         marginRight: 15,
     },
 
     itemTitle: {
         flex: 1,
-        color: "#fff",
+        color: c.text,
         fontSize: 16,
         fontWeight: "500",
     },
 
-});
+    });
+}

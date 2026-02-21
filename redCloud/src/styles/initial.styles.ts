@@ -1,6 +1,8 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const initialStyles = StyleSheet.create({
+export function makeInitialStyles(_c: Colors) {
+    return StyleSheet.create({
     background: {
         flex: 1, //faz a imagem aparecer na tela
     },
@@ -50,5 +52,6 @@ export const initialStyles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "bold",
         color: "#0000",
-    }
-});
+    },
+    });
+}

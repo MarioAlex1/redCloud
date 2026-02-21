@@ -1,24 +1,26 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../theme/colors';
 
-export const ListStyles = StyleSheet.create({
+export function makeListStyles(c: Colors) {
+    return StyleSheet.create({
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingTop: 70, // aumenta o espaço do topo
+        paddingTop: 70,
         paddingHorizontal: 20,
         paddingBottom: 20,
-        backgroundColor: '#000',
+        backgroundColor: c.bg,
     },
 
     title: {
-        color: '#fff',
+        color: c.text,
         fontSize: 22,
         fontWeight: 'bold',
     },
 
     searchBar: {
-        backgroundColor: '#1a1a1a',
+        backgroundColor: c.bgCard,
         marginHorizontal: 20,
         borderRadius: 12,
         paddingHorizontal: 10,
@@ -28,7 +30,7 @@ export const ListStyles = StyleSheet.create({
     },
 
     searchInput: {
-        color: '#fff',
+        color: c.text,
         fontSize: 16,
     },
 
@@ -42,7 +44,7 @@ export const ListStyles = StyleSheet.create({
         paddingVertical: 8,
         paddingHorizontal: 16,
         borderRadius: 20,
-        backgroundColor: '#333',
+        backgroundColor: c.bgChip,
     },
 
     activeOption: {
@@ -50,7 +52,7 @@ export const ListStyles = StyleSheet.create({
     },
 
     optionText: {
-        color: '#fff',
+        color: c.text,
         fontWeight: 'bold',
     },
 
@@ -71,14 +73,14 @@ export const ListStyles = StyleSheet.create({
     },
 
     emptyTitle: {
-        color: '#fff',
+        color: c.text,
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 5,
     },
 
     emptySubtitle: {
-        color: '#aaa',
+        color: c.textSub,
         fontSize: 15,
         marginBottom: 20,
     },
@@ -94,4 +96,5 @@ export const ListStyles = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
     },
-});
+    });
+}

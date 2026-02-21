@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const homeStyles = StyleSheet.create({
+export function makeHomeStyles(c: Colors) {
+    return StyleSheet.create({
     screen: {
         flex: 1,
-        backgroundColor: "#000",
+        backgroundColor: c.bg,
     },
 
     ImageContainer: {
@@ -76,7 +78,7 @@ export const homeStyles = StyleSheet.create({
     },
 
     sectionTitle: {
-        color: "#fff",
+        color: c.text,
         fontSize: 20,
         fontWeight: "bold",
         marginBottom: 15,
@@ -92,7 +94,7 @@ export const homeStyles = StyleSheet.create({
         width: 100,
         height: 150,
         borderRadius: 10,
-        backgroundColor: "#222",
+        backgroundColor: c.bgDivider,
     },
 
     searchButton: {
@@ -104,4 +106,5 @@ export const homeStyles = StyleSheet.create({
         borderRadius: 50,
         zIndex: 50,
     },
-})
+    });
+}

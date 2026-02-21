@@ -1,8 +1,10 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const UserStyles = StyleSheet.create({
+export function makeUserStyles(c: Colors) {
+    return StyleSheet.create({
     title: {
-        color: '#fff',
+        color: c.text,
         fontSize: 24,
         fontWeight: 'bold',
         textAlign: 'center',
@@ -23,7 +25,7 @@ export const UserStyles = StyleSheet.create({
     },
 
     container: {
-        backgroundColor: '#D9D9D9',
+        backgroundColor: c.surface,
         marginHorizontal: 20,
         borderRadius: 12,
         marginBottom: 40,
@@ -59,4 +61,5 @@ export const UserStyles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
     },
-})
+    });
+}

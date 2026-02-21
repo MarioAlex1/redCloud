@@ -1,23 +1,25 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const forgotStyles = StyleSheet.create({
+export function makeForgotStyles(c: Colors) {
+    return StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#000",
+        backgroundColor: c.bg,
         justifyContent: "center",
         paddingHorizontal: 20,
     },
 
     card: {
-        backgroundColor: "#111",
+        backgroundColor: c.bgInput,
         padding: 25,
         borderRadius: 12,
         borderWidth: 1,
-        borderColor: "#222",
+        borderColor: c.bgDivider,
     },
 
     title: {
-        color: "#fff",
+        color: c.text,
         fontSize: 26,
         fontWeight: "bold",
         marginBottom: 15,
@@ -25,7 +27,7 @@ export const forgotStyles = StyleSheet.create({
     },
 
     subtitle: {
-        color: "#aaa",
+        color: c.textSub,
         fontSize: 14,
         textAlign: "center",
         marginBottom: 25,
@@ -33,13 +35,13 @@ export const forgotStyles = StyleSheet.create({
     },
 
     input: {
-        backgroundColor: "#000",
-        color: "#fff",
+        backgroundColor: c.bg,
+        color: c.text,
         padding: 12,
         borderRadius: 8,
         marginBottom: 20,
         borderWidth: 1,
-        borderColor: "#222",
+        borderColor: c.bgDivider,
     },
 
     sendButton: {
@@ -62,12 +64,13 @@ export const forgotStyles = StyleSheet.create({
     },
 
     bottomText: {
-        color: "#888",
+        color: c.textMuted,
         marginRight: 6,
     },
 
     backToLoginText: {
-        color: "#e50914",
+        color: c.accent,
         fontWeight: "bold",
     },
-});
+    });
+}

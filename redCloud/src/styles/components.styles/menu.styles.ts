@@ -1,12 +1,14 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../../theme/colors";
 
-export const menuFooter = StyleSheet.create({
+export function makeMenuFooter(c: Colors) {
+    return StyleSheet.create({
     footer: {
         position: 'absolute',
         bottom: 0,
         width: "100%",
         height: 70,
-        backgroundColor: "#6E1F29",
+        backgroundColor: c.brand,
         borderTopColor: "#333",
         flexDirection: "row",
         justifyContent: "space-around",
@@ -30,4 +32,5 @@ export const menuFooter = StyleSheet.create({
     activeShadow: {
         backgroundColor: 'rgba(255,255,255,0.06)',
     },
-})
+    });
+}

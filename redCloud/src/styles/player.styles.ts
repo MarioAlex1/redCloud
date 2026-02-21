@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const playerStyles = StyleSheet.create({
+export function makePlayerStyles(c: Colors) {
+    return StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#000",
+        backgroundColor: c.bg,
     },
     
     videoArea: {
@@ -21,7 +23,7 @@ export const playerStyles = StyleSheet.create({
     },
 
     episodeTitle: {
-        color: "#fff",
+        color: c.text,
         fontSize: 18,
         marginBottom: 100,
         textAlign: "center",
@@ -34,13 +36,14 @@ export const playerStyles = StyleSheet.create({
     progressBarBG: {
         width: "100%",
         height: 6,
-        backgroundColor: "#444",
+        backgroundColor: c.bgProgress,
         borderRadius: 3,
     },
 
     progressBar: {
         height: 6,
-        backgroundColor: "#e50914",
+        backgroundColor: c.accent,
         borderRadius: 3,
     },
-});
+    });
+}

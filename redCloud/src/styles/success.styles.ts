@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const successStyles = StyleSheet.create({
+export function makeSuccessStyles(c: Colors) {
+    return StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: c.bg,
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
@@ -16,14 +18,14 @@ export const successStyles = StyleSheet.create({
   },
 
   title: {
-    color: "#fff",
+    color: c.text,
     fontSize: 28,
     fontWeight: "bold",
     marginBottom: 10,
   },
 
   subtitle: {
-    color: "#ccc",
+    color: c.textFaint,
     fontSize: 20,
     textAlign: "center",
     marginBottom: 35,
@@ -41,4 +43,5 @@ export const successStyles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
   },
-});
+  });
+}

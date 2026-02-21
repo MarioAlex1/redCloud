@@ -1,8 +1,10 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const PaymentStyles = StyleSheet.create({
+export function makePaymentStyles(c: Colors) {
+    return StyleSheet.create({
     title: {
-        color: "#fff",
+        color: c.text,
         fontSize: 24,
         fontWeight: "bold",
         marginTop: 100,
@@ -16,25 +18,25 @@ export const PaymentStyles = StyleSheet.create({
     },
 
     label: {
-        color: "#fff",
+        color: c.text,
         fontSize: 16,
         marginBottom: 10,
     },
 
     input: {
-        backgroundColor: "#111",
+        backgroundColor: c.bgInput,
         borderRadius: 10,
         paddingHorizontal: 15,
         paddingVertical: 12,
-        color: "#fff",
+        color: c.text,
         fontSize: 16,
         borderWidth: 1,
-        borderColor: "#333",
+        borderColor: c.bgChip,
         marginBottom: 30
     },
 
     methodsContainer: {
-        backgroundColor: "#1a1a1a",
+        backgroundColor: c.bgCard,
         marginHorizontal: 20,
         paddingVertical: 10,
         borderRadius: 10,
@@ -51,7 +53,7 @@ export const PaymentStyles = StyleSheet.create({
     },
 
     methodText: {
-        color: "#fff",
+        color: c.text,
         fontSize: 16,
         flex: 1,
         marginLeft: 15,
@@ -60,13 +62,13 @@ export const PaymentStyles = StyleSheet.create({
     paymentContainer: {
         marginHorizontal: 20,
         marginBottom: 50,
-        backgroundColor: "#1a1a1a",
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 20,
     },
 
     totalText: {
-        color: "#aaa",
+        color: c.textSub,
         fontSize: 15,
         marginBottom: 10,
     },
@@ -78,7 +80,7 @@ export const PaymentStyles = StyleSheet.create({
     },
 
     price: {
-        color: "#fff",
+        color: c.text,
         fontSize: 24,
         fontWeight: "bold",
     },
@@ -95,4 +97,5 @@ export const PaymentStyles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "bold",
     },
-});
+    });
+}

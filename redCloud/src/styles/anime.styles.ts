@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const animeStyles = StyleSheet.create({
+export function makeAnimeStyles(c: Colors) {
+    return StyleSheet.create({
 
     screen: {
         flex: 1,
-        backgroundColor: "#000",
+        backgroundColor: c.bg,
     },
 
     cover: {
@@ -18,7 +20,7 @@ export const animeStyles = StyleSheet.create({
     },
 
     title: {
-        color: "#fff",
+        color: c.text,
         fontSize: 28,
         fontWeight: "bold",
     },
@@ -29,12 +31,12 @@ export const animeStyles = StyleSheet.create({
     },
 
     infoText: {
-        color: "#aaa",
+        color: c.textSub,
         marginRight: 10,
     },
 
     description: {
-        color: "#ccc",
+        color: c.textFaint,
         marginTop: 15,
         lineHeight: 20,
     },
@@ -58,7 +60,7 @@ export const animeStyles = StyleSheet.create({
     },
 
     downloadButton: {
-        backgroundColor: "#333",
+        backgroundColor: c.bgChip,
         paddingVertical: 10,
         borderRadius: 8,
         flexDirection: "row",
@@ -68,7 +70,7 @@ export const animeStyles = StyleSheet.create({
     },
 
     buttonText: {
-        color: "#fff",
+        color: c.text,
         fontSize: 18,
         marginLeft: 10,
     },
@@ -86,17 +88,17 @@ export const animeStyles = StyleSheet.create({
     },
 
     secondaryText: {
-        color: "#aaa",
+        color: c.textSub,
         marginTop: 5,
     },
 
     likedButton: {
-        borderColor: "#e50914",
+        borderColor: c.accent,
     },
 
     /* SELETOR DE TEMPORADAS */
     seasonSelector: {
-        backgroundColor: "#111",
+        backgroundColor: c.bgInput,
         padding: 12,
         borderRadius: 8,
         flexDirection: "row",
@@ -107,12 +109,12 @@ export const animeStyles = StyleSheet.create({
     },
 
     seasonSelectorText: {
-        color: "#fff",
+        color: c.text,
         fontSize: 16,
     },
 
     seasonList: {
-        backgroundColor: "#111",
+        backgroundColor: c.bgInput,
         borderRadius: 8,
         marginBottom: 20,
     },
@@ -120,18 +122,18 @@ export const animeStyles = StyleSheet.create({
     seasonItem: {
         padding: 12,
         borderBottomWidth: 1,
-        borderBottomColor: "#222",
+        borderBottomColor: c.bgDivider,
     },
 
     seasonItemText: {
-        color: "#fff",
+        color: c.text,
     },
 
     /* EPISÓDIOS */
     episodeCard: {
         flexDirection: "row",
         marginBottom: 20,
-        backgroundColor: "#111",
+        backgroundColor: c.bgInput,
         borderRadius: 10,
         padding: 10,
     },
@@ -148,19 +150,20 @@ export const animeStyles = StyleSheet.create({
     },
 
     episodeTitle: {
-        color: "#fff",
+        color: c.text,
         fontSize: 16,
         fontWeight: "bold",
     },
 
     episodeDuration: {
-        color: "#888",
+        color: c.textMuted,
         fontSize: 14,
         marginBottom: 5,
     },
 
     episodeDescription: {
-        color: "#ccc",
+        color: c.textFaint,
         fontSize: 13,
     },
-});
+    });
+}

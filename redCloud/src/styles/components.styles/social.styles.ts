@@ -1,6 +1,8 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../../theme/colors";
 
-export const socialStyles = StyleSheet.create({
+export function makeSocialStyles(_c: Colors) {
+    return StyleSheet.create({
   message: {
     top: 35,
     fontSize: 16,
@@ -19,4 +21,5 @@ export const socialStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-});
+  });
+}

@@ -1,7 +1,8 @@
-import { StyleSheet } from "react-native"
-import ForgotPasswordPage from "../../app/forgot"
+import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const loginStyles = StyleSheet.create({
+export function makeLoginStyles(c: Colors) {
+    return StyleSheet.create({
     background: {
         flex: 1
     },
@@ -11,7 +12,7 @@ export const loginStyles = StyleSheet.create({
         height: "100%",
         padding: 20,
         paddingTop: "50%",
-        backgroundColor: "#D9D9D9", // branco acinzentado
+        backgroundColor: c.surface, // surface card
         borderRadius: 75,
 
         // isso mantém ele fixo no topo da imagem
@@ -35,7 +36,7 @@ export const loginStyles = StyleSheet.create({
     input: {
         width: "100%",
         padding: 18,
-        backgroundColor: "#FFFDFD",
+        backgroundColor: c.inputSurface,
         borderRadius: 20,
         marginBottom: 28,
         fontSize: 16,
@@ -79,6 +80,7 @@ export const loginStyles = StyleSheet.create({
 
     forgotPasswordText: {
         fontSize: 16,
-        textDecorationLine: "underline"
+        textDecorationLine: "underline",
     },
-})
+    });
+}

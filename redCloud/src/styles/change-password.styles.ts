@@ -1,14 +1,16 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "../theme/colors";
 
-export const ChangePasswordStyles = StyleSheet.create({
+export function makeChangePasswordStyles(c: Colors) {
+    return StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#000",
+        backgroundColor: c.bg,
         padding: 20,
     },
 
     title: {
-        color: "#fff",
+        color: c.text,
         fontSize: 26,
         fontWeight: "bold",
         marginBottom: 20,
@@ -21,17 +23,17 @@ export const ChangePasswordStyles = StyleSheet.create({
     },
 
     input: {
-        backgroundColor: "#111",
-        color: "#fff",
+        backgroundColor: c.bgInput,
+        color: c.text,
         padding: 12,
         borderRadius: 8,
         marginBottom: 25,
         borderWidth: 1,
-        borderColor: "#222",
+        borderColor: c.bgDivider,
     },
 
     message: {
-        color: "#e50914",
+        color: c.accent,
         marginBottom: 20,
     },
 
@@ -56,7 +58,8 @@ export const ChangePasswordStyles = StyleSheet.create({
     },
 
     backText: {
-        color: "#fff",
+        color: c.text,
         marginLeft: 8,
     },
-});
+    });
+}
