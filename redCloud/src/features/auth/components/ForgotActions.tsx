@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import { Link } from "expo-router";
+import { router } from "expo-router";
 import { makeForgotStyles } from "../screens/ForgotScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
@@ -27,9 +27,11 @@ export default function ForgotActions({
                     Lembrou a senha?
                 </Text>
 
-                <Link href="/login" style={forgotStyles.backToLoginText}>
-                    Voltar para Login
-                </Link>
+                <TouchableOpacity onPress={() => router.back()}>
+                    <Text style={forgotStyles.backToLoginText}>
+                        Voltar para Login
+                    </Text>
+                </TouchableOpacity>
             </View>
         </>
     );

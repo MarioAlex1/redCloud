@@ -1,4 +1,5 @@
 import { ScrollView } from "react-native";
+import { Stack } from "expo-router";
 import { useState, useMemo } from "react";
 import { makeAnimeStyles } from "./AnimeScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
@@ -17,7 +18,9 @@ export default function AnimeDetails() {
     const [liked, setLiked] = useState(false);
 
     return (
-        <ScrollView style={animeStyles.screen}>
+        <>
+            <Stack.Screen options={{ headerTransparent: true, headerTitle: "", headerTintColor: "#ffffff" }} />
+            <ScrollView style={animeStyles.screen}>
             <AnimeHeader />
 
             <AnimeActions />
@@ -39,5 +42,6 @@ export default function AnimeDetails() {
 
             <EpisodeList season={selectedSeason} />
         </ScrollView>
+        </>
     );
 }

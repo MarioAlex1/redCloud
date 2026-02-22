@@ -33,7 +33,7 @@ export default function LoginForm() {
       await authStorage.saveUser(user);
 
       // Redireciona para home
-      router.push("/home");
+      router.replace("/home");
     } catch (error: any) {
       console.log('Erro no login:', error);
       Alert.alert('Erro', error.message || 'Falha no login');

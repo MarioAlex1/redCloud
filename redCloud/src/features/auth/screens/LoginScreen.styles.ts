@@ -43,7 +43,7 @@ export function makeLoginStyles(c: Colors) {
     },
 
     buttonCreate: {
-        backgroundColor: c.primary,
+        backgroundColor: "#6E1F29",
         padding: 10,
         borderRadius: 999,
         marginTop: 70,
@@ -55,7 +55,7 @@ export function makeLoginStyles(c: Colors) {
     buttonText: {
         fontSize: 18,
         fontWeight: "bold",
-        color: c.onPrimary,
+        color: "white",
     },
 
     // estilização do lembre-me

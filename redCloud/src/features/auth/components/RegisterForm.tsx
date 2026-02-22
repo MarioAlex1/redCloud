@@ -39,7 +39,7 @@ export default function RegisterForm() {
       await authStorage.saveUser(user);
 
       // Redireciona pra home
-      router.push("/home");
+      router.replace("/home");
     } catch (error: any) {
       console.log('Erro no registro:', error);
       Alert.alert('Erro', error.message || 'Falha ao criar conta');

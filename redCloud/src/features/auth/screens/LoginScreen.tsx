@@ -12,7 +12,7 @@ export default function LoginPage() {
     const loginStyles = useMemo(() => makeLoginStyles(colors), [colors]);
     return (
         <>
-            <Stack.Screen options={{ headerShown: true }} />
+            <Stack.Screen options={{ headerShown: true, headerTintColor: colors.primary }} />
 
             <ImageBackground
                 source={require("../../../assets/images/fundoLoginRegister.png")}
