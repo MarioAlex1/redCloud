@@ -17,9 +17,11 @@ export default function AnimeHeader() {
                 <Text style={animeStyles.title}>Attack on Titan</Text>
 
                 <View style={animeStyles.infoRow}>
-                    <Text style={animeStyles.infoText}>2013</Text>
-                    <Text style={animeStyles.infoText}>16+</Text>
-                    <Text style={animeStyles.infoText}>4 temporadas</Text>
+                    {["2013", "16+", "4 temporadas"].map((label) => (
+                        <View key={label} style={animeStyles.infoChip}>
+                            <Text style={animeStyles.infoText}>{label}</Text>
+                        </View>
+                    ))}
                 </View>
 
                 <Text style={animeStyles.description}>

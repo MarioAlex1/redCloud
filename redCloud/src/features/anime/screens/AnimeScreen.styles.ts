@@ -27,12 +27,22 @@ export function makeAnimeStyles(c: Colors) {
 
     infoRow: {
         flexDirection: "row",
-        marginTop: 8,
+        flexWrap: "wrap",
+        marginTop: 10,
+        gap: 8,
+    },
+
+    infoChip: {
+        borderWidth: 1,
+        borderColor: c.textSub,
+        borderRadius: 8,
+        paddingHorizontal: 10,
+        paddingVertical: 4,
     },
 
     infoText: {
         color: c.textSub,
-        marginRight: 10,
+        fontSize: 13,
     },
 
     description: {
