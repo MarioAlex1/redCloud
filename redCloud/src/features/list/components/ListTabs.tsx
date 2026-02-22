@@ -57,7 +57,7 @@ function TabButton({
             ]}
             onPress={onPress}
         >
-            <Text style={styles.optionText}>{label}</Text>
+            <Text style={[styles.optionText, active && styles.activeOptionText]}>{label}</Text>
         </TouchableOpacity>
     );
 }

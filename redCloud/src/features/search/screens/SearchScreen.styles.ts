@@ -49,7 +49,7 @@ export function makeSearchStyles(c: Colors) {
     listItem: {
         flexDirection: "row",
         alignItems: "center",
-        backgroundColor: "#6E1F29",
+        backgroundColor: c.primary,
         paddingVertical: 0,
         paddingLeft: 0,
         paddingRight: 20,
@@ -68,7 +68,7 @@ export function makeSearchStyles(c: Colors) {
 
     itemTitle: {
         flex: 1,
-        color: c.text,
+        color: "white",
         fontSize: 16,
         fontWeight: "500",
     },

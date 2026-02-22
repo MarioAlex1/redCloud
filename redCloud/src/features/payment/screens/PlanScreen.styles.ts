@@ -41,7 +41,7 @@ export function makePlanStyles(c: Colors) {
     },
 
     subscribeButton: {
-        backgroundColor: "#6E1F29",
+        backgroundColor: c.primary,
         marginTop: 30,
         marginBottom: 50,
         alignSelf: "center",
@@ -52,7 +52,7 @@ export function makePlanStyles(c: Colors) {
     },
 
     subscribeButtonText: {
-        color: '#fff',
+        color: c.onPrimary,
         fontSize: 18,
         fontWeight: "bold",
     },

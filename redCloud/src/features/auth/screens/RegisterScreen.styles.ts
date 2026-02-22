@@ -43,7 +43,7 @@ export function makeRegisterStyles(c: Colors) {
     },
 
     buttonCreate: {
-        backgroundColor: "#6E1F29",
+        backgroundColor: c.primary,
         padding: 10,
         borderRadius: 999,
         marginTop: 30,
@@ -55,7 +55,7 @@ export function makeRegisterStyles(c: Colors) {
     buttonText: {
         fontSize: 18,
         fontWeight: "bold",
-        color: "#fff",
+        color: c.onPrimary,
     },
 
     // estilização do lembre-me

@@ -86,14 +86,14 @@ export function makePaymentStyles(c: Colors) {
     },
 
     payButton: {
-        backgroundColor: "#6E1F29",
+        backgroundColor: c.primary,
         borderRadius: 999,
         paddingVertical: 10,
         paddingHorizontal: 25,
     },
 
     payButtonText: {
-        color: "#fff",
+        color: c.onPrimary,
         fontSize: 16,
         fontWeight: "bold",
     },

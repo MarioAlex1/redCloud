@@ -45,14 +45,14 @@ export function makeForgotStyles(c: Colors) {
     },
 
     sendButton: {
-        backgroundColor: "#e50914",
+        backgroundColor: c.primary,
         padding: 15,
         borderRadius: 999,
         alignItems: "center",
     },
 
     sendButtonText: {
-        color: "#fff",
+        color: c.onPrimary,
         fontWeight: "bold",
         fontSize: 16,
     },

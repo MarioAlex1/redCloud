@@ -48,12 +48,16 @@ export function makeListStyles(c: Colors) {
     },
 
     activeOption: {
-        backgroundColor: '#6E1F29',
+        backgroundColor: c.primary,
     },
 
     optionText: {
         color: c.text,
         fontWeight: 'bold',
+    },
+
+    activeOptionText: {
+        color: c.onPrimary,
     },
 
     listContainer: {
@@ -86,14 +90,14 @@ export function makeListStyles(c: Colors) {
     },
 
     addButton: {
-        backgroundColor: '#6E1F29',
+        backgroundColor: c.primary,
         paddingVertical: 10,
         paddingHorizontal: 25,
         borderRadius: 999,
     },
 
     addButtonText: {
-        color: '#fff',
+        color: c.onPrimary,
         fontWeight: 'bold',
     },
     });

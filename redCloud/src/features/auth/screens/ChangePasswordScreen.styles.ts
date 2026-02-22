@@ -57,7 +57,7 @@ export function makeChangePasswordStyles(c: Colors) {
     },
 
     saveButton: {
-        backgroundColor: c.brand,
+        backgroundColor: c.primary,
         padding: 15,
         borderRadius: 999,
         alignItems: "center",
@@ -65,7 +65,7 @@ export function makeChangePasswordStyles(c: Colors) {
     },
 
     saveButtonText: {
-        color: "#fff",
+        color: c.onPrimary,
         fontWeight: "bold",
         fontSize: 16,
     },

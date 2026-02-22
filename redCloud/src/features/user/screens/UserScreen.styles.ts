@@ -53,7 +53,7 @@ export function makeUserStyles(c: Colors, isDark = true) {
     },
 
     logoutButton: {
-        backgroundColor: '#6E1F29',
+        backgroundColor: c.primary,
         width: 150,
         alignSelf: 'center',
         marginHorizontal: 20,

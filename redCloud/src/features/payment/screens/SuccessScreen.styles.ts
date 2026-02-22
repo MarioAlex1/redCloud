@@ -32,14 +32,14 @@ export function makeSuccessStyles(c: Colors) {
   },
 
   button: {
-    backgroundColor: "#6E1F29",
+    backgroundColor: c.primary,
     paddingVertical: 12,
     paddingHorizontal: 35,
     borderRadius: 999,
   },
 
   buttonText: {
-    color: "#fff",
+    color: c.onPrimary,
     fontSize: 18,
     fontWeight: "600",
   },
