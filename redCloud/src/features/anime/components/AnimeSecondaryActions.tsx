@@ -16,7 +16,7 @@ export default function AnimeSecondaryActions({
     return (
         <View style={animeStyles.secondaryActions}>
             <TouchableOpacity style={animeStyles.secondaryItem}>
-                <MaterialIcons name="add" size={26} color="#fff" />
+                <MaterialIcons name="add" size={26} color={colors.text} />
                 <Text style={animeStyles.secondaryText}>Minha Lista</Text>
             </TouchableOpacity>
 
@@ -40,7 +40,7 @@ export default function AnimeSecondaryActions({
             </TouchableOpacity>
 
             <TouchableOpacity style={animeStyles.secondaryItem}>
-                <MaterialIcons name="share" size={26} color="#fff" />
+                <MaterialIcons name="share" size={26} color={colors.text} />
                 <Text style={animeStyles.secondaryText}>Compartilhar</Text>
             </TouchableOpacity>
         </View>
