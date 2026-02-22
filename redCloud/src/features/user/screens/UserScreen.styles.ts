@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { Colors } from "../../../theme/colors";
 
-export function makeUserStyles(c: Colors) {
+export function makeUserStyles(c: Colors, isDark = true) {
     return StyleSheet.create({
     title: {
         color: c.text,
@@ -30,6 +30,13 @@ export function makeUserStyles(c: Colors) {
         borderRadius: 12,
         marginBottom: 40,
         paddingVertical: 10,
+        ...(isDark ? {} : {
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.12,
+            shadowRadius: 6,
+            elevation: 4,
+        }),
     },
 
     optionRow: {

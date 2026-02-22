@@ -18,7 +18,7 @@ export default function UserPreferences({
     onChangeSubtitle,
 }: Props) {
     const { colors, theme, toggleTheme } = useTheme();
-    const UserStyles = useMemo(() => makeUserStyles(colors), [colors]);
+    const UserStyles = useMemo(() => makeUserStyles(colors, theme === 'dark'), [colors, theme]);
     return (
         <View style={UserStyles.container}>
             {/* Toggle de Tema */}

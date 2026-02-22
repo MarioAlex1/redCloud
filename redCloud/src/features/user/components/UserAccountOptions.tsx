@@ -6,8 +6,8 @@ import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
 export default function UserAccountOptions() {
-    const { colors } = useTheme();
-    const UserStyles = useMemo(() => makeUserStyles(colors), [colors]);
+    const { colors, theme } = useTheme();
+    const UserStyles = useMemo(() => makeUserStyles(colors, theme === 'dark'), [colors, theme]);
     return (
         <View style={UserStyles.container}>
             <Option href="/plan" label="Plano de membro" styles={UserStyles} />
