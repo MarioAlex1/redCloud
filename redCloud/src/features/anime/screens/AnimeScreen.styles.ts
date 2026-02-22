@@ -73,7 +73,7 @@ export function makeAnimeStyles(c: Colors) {
     },
 
     playButton: {
-        backgroundColor: c.primary,
+        backgroundColor: "#6E1F29",
         paddingVertical: 10,
         borderRadius: 999,
         flexDirection: "row",
