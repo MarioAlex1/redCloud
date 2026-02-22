@@ -1,7 +1,8 @@
-import { View, ScrollView } from "react-native";
+import { View } from "react-native";
 import { Stack } from "expo-router";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useState, useMemo } from "react";
+import { makeChangePasswordStyles } from "./ChangePasswordScreen.styles";
 
 import ChangePasswordHeader from "../components/ChangePasswordHeader";
 import ChangePasswordForm from "../components/ChangePasswordForm";
@@ -9,6 +10,7 @@ import ChangePasswordActions from "../components/ChangePasswordActions";
 
 export default function ChangePasswordPage() {
     const { colors } = useTheme();
+    const styles = useMemo(() => makeChangePasswordStyles(colors), [colors]);
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -37,8 +39,8 @@ export default function ChangePasswordPage() {
         <>
             <Stack.Screen options={{ headerShown: false }} />
 
-            <View style={{ flex: 1, backgroundColor: colors.bg }}>
-                <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
+            <View style={styles.container}>
+                <View style={styles.card}>
                     <ChangePasswordHeader />
 
                     <ChangePasswordForm
@@ -52,7 +54,7 @@ export default function ChangePasswordPage() {
                     />
 
                     <ChangePasswordActions onSave={handleChange} />
-                </ScrollView>
+                </View>
             </View>
         </>
     );

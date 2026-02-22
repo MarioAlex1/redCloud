@@ -5,10 +5,11 @@ import { useMemo } from "react";
 
 export default function ChangeEmailHeader() {
     const { colors } = useTheme();
-    const ChangeEmailStyles = useMemo(() => makeChangeEmailStyles(colors), [colors]);
+    const s = useMemo(() => makeChangeEmailStyles(colors), [colors]);
     return (
-        <Text style={ChangeEmailStyles.title}>
-            Mudar Email
-        </Text>
+        <>
+            <Text style={s.title}>Mudar Email</Text>
+            <Text style={s.subtitle}>Informe seu email atual e o novo endereço que deseja usar.</Text>
+        </>
     );
 }

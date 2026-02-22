@@ -6,43 +6,62 @@ export function makeChangeEmailStyles(c: Colors) {
     container: {
         flex: 1,
         backgroundColor: c.bg,
-        padding: 20,
+        justifyContent: "center",
+        paddingHorizontal: 20,
+    },
+
+    card: {
+        backgroundColor: c.bgInput,
+        padding: 25,
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: c.bgDivider,
     },
 
     title: {
         color: c.text,
         fontSize: 26,
         fontWeight: "bold",
-        marginBottom: 20,
-        marginTop: 210
+        marginBottom: 8,
+        textAlign: "center",
+    },
+
+    subtitle: {
+        color: c.textSub,
+        fontSize: 14,
+        textAlign: "center",
+        marginBottom: 25,
+        lineHeight: 20,
     },
 
     label: {
-        color: "gray",
-        marginBottom: 10,
+        color: c.textSub,
+        marginBottom: 8,
+        fontSize: 14,
     },
 
     input: {
-        backgroundColor: c.bgInput,
+        backgroundColor: c.bg,
         color: c.text,
         padding: 12,
         borderRadius: 8,
-        marginBottom: 25,
+        marginBottom: 20,
         borderWidth: 1,
         borderColor: c.bgDivider,
     },
 
     message: {
         color: c.accent,
-        marginBottom: 20,
+        marginBottom: 15,
+        textAlign: "center",
     },
 
     saveButton: {
-        backgroundColor: "#e50914",
+        backgroundColor: c.brand,
         padding: 15,
         borderRadius: 999,
         alignItems: "center",
-        marginTop: 10,
+        marginTop: 5,
     },
 
     saveButtonText: {
@@ -51,15 +70,21 @@ export function makeChangeEmailStyles(c: Colors) {
         fontSize: 16,
     },
 
-    backButton: {
-        marginTop: 25,
+    bottomArea: {
+        marginTop: 20,
         flexDirection: "row",
+        justifyContent: "center",
         alignItems: "center",
     },
 
+    bottomText: {
+        color: c.textMuted,
+        marginRight: 6,
+    },
+
     backText: {
-        color: c.text,
-        marginLeft: 8,
+        color: c.accent,
+        fontWeight: "bold",
     },
     });
 }

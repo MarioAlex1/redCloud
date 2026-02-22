@@ -1,23 +1,24 @@
-import { TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
+import { router } from "expo-router";
 import { makeChangeEmailStyles } from "../screens/ChangeEmailScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
-export default function ChangeEmailActions({
-    onSave,
-}: {
-    onSave: () => void;
-}) {
+export default function ChangeEmailActions({ onSave }: { onSave: () => void }) {
     const { colors } = useTheme();
-    const ChangeEmailStyles = useMemo(() => makeChangeEmailStyles(colors), [colors]);
+    const s = useMemo(() => makeChangeEmailStyles(colors), [colors]);
     return (
-        <TouchableOpacity
-            onPress={onSave}
-            style={ChangeEmailStyles.saveButton}
-        >
-            <Text style={ChangeEmailStyles.saveButtonText}>
-                Salvar
-            </Text>
-        </TouchableOpacity>
+        <>
+            <TouchableOpacity onPress={onSave} style={s.saveButton}>
+                <Text style={s.saveButtonText}>Salvar</Text>
+            </TouchableOpacity>
+
+            <View style={s.bottomArea}>
+                <Text style={s.bottomText}>Não quer alterar?</Text>
+                <TouchableOpacity onPress={() => router.back()}>
+                    <Text style={s.backText}>Voltar</Text>
+                </TouchableOpacity>
+            </View>
+        </>
     );
 }

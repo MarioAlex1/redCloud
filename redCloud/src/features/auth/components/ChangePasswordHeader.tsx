@@ -5,10 +5,11 @@ import { useMemo } from "react";
 
 export default function ChangePasswordHeader() {
     const { colors } = useTheme();
-    const ChangePasswordStyles = useMemo(() => makeChangePasswordStyles(colors), [colors]);
+    const s = useMemo(() => makeChangePasswordStyles(colors), [colors]);
     return (
-        <Text style={ChangePasswordStyles.title}>
-            Mudar Senha
-        </Text>
+        <>
+            <Text style={s.title}>Mudar Senha</Text>
+            <Text style={s.subtitle}>Escolha uma senha forte com pelo menos 6 caracteres.</Text>
+        </>
     );
 }

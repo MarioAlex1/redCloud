@@ -1,7 +1,8 @@
-import { View, ScrollView } from "react-native";
+import { View } from "react-native";
 import { Stack } from "expo-router";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useState, useMemo } from "react";
+import { makeChangeEmailStyles } from "./ChangeEmailScreen.styles";
 
 import ChangeEmailHeader from "../components/ChangeEmailHeader";
 import ChangeEmailForm from "../components/ChangeEmailForm";
@@ -9,6 +10,7 @@ import ChangeEmailActions from "../components/ChangeEmailActions";
 
 export default function ChangeEmailPage() {
     const { colors } = useTheme();
+    const styles = useMemo(() => makeChangeEmailStyles(colors), [colors]);
     const [currentEmail, setCurrentEmail] = useState("");
     const [newEmail, setNewEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -31,8 +33,8 @@ export default function ChangeEmailPage() {
         <>
             <Stack.Screen options={{ headerShown: false }} />
 
-            <View style={{ flex: 1, backgroundColor: colors.bg }}>
-                <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
+            <View style={styles.container}>
+                <View style={styles.card}>
                     <ChangeEmailHeader />
 
                     <ChangeEmailForm
@@ -44,7 +46,7 @@ export default function ChangeEmailPage() {
                     />
 
                     <ChangeEmailActions onSave={handleChange} />
-                </ScrollView>
+                </View>
             </View>
         </>
     );
