@@ -55,13 +55,14 @@ export function makeAnimeStyles(c: Colors) {
     actionRow: {
         flexDirection: "row",
         marginTop: 20,
+        marginHorizontal: 20,
         justifyContent: "space-between",
     },
 
     playButton: {
         backgroundColor: "#6E1F29",
         paddingVertical: 10,
-        borderRadius: 8,
+        borderRadius: 20,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
@@ -72,7 +73,7 @@ export function makeAnimeStyles(c: Colors) {
     downloadButton: {
         backgroundColor: c.bgChip,
         paddingVertical: 10,
-        borderRadius: 8,
+        borderRadius: 20,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
@@ -80,7 +81,7 @@ export function makeAnimeStyles(c: Colors) {
     },
 
     buttonText: {
-        color: c.text,
+        color: "white",
         fontSize: 18,
         marginLeft: 10,
     },
