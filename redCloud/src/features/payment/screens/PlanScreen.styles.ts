@@ -47,7 +47,7 @@ export function makePlanStyles(c: Colors) {
         alignSelf: "center",
         width: 180,
         paddingVertical: 14,
-        borderRadius: 20,
+        borderRadius: 999,
         alignItems: "center",
     },
 

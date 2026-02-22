@@ -29,7 +29,7 @@ export function makeInitialStyles(_c: Colors) {
     buttonLogin: { //esse e o de baixo controla a estetica dos botões
         width: "65%",
         padding: 10,
-        borderRadius: 30,
+        borderRadius: 999,
         backgroundColor: "rgba(255, 26, 26, 0.59)",
         alignItems: "center",
     },
@@ -37,7 +37,7 @@ export function makeInitialStyles(_c: Colors) {
     buttonRegister: {
         width: "65%",
         padding: 10,
-        borderRadius: 30,
+        borderRadius: 999,
         backgroundColor: "rgba(255, 255, 255, 0.7)",
         alignItems: "center",
     },

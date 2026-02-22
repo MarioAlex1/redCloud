@@ -9,9 +9,22 @@ export function makeAnimeStyles(c: Colors) {
         backgroundColor: c.bg,
     },
 
+    coverContainer: {
+        width: "100%",
+        height: 420,
+    },
+
     cover: {
         width: "100%",
         height: 420,
+    },
+
+    coverGradient: {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: 220,
     },
 
     content: {
@@ -62,7 +75,7 @@ export function makeAnimeStyles(c: Colors) {
     playButton: {
         backgroundColor: "#6E1F29",
         paddingVertical: 10,
-        borderRadius: 20,
+        borderRadius: 999,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
@@ -73,7 +86,7 @@ export function makeAnimeStyles(c: Colors) {
     downloadButton: {
         backgroundColor: c.bgChip,
         paddingVertical: 10,
-        borderRadius: 20,
+        borderRadius: 999,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",

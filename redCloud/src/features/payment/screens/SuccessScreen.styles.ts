@@ -35,7 +35,7 @@ export function makeSuccessStyles(c: Colors) {
     backgroundColor: "#6E1F29",
     paddingVertical: 12,
     paddingHorizontal: 35,
-    borderRadius: 15,
+    borderRadius: 999,
   },
 
   buttonText: {

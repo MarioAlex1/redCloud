@@ -45,7 +45,7 @@ export function makeLoginStyles(c: Colors) {
     buttonCreate: {
         backgroundColor: "#6E1F29",
         padding: 10,
-        borderRadius: 20,
+        borderRadius: 999,
         marginTop: 70,
         width: "50%",
         alignItems: "center",

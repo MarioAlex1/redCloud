@@ -89,7 +89,7 @@ export function makeListStyles(c: Colors) {
         backgroundColor: '#6E1F29',
         paddingVertical: 10,
         paddingHorizontal: 25,
-        borderRadius: 12,
+        borderRadius: 999,
     },
 
     addButtonText: {

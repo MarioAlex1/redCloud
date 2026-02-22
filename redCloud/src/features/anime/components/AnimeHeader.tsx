@@ -1,4 +1,5 @@
 import { View, Text, Image } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import { makeAnimeStyles } from "../screens/AnimeScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
@@ -8,10 +9,17 @@ export default function AnimeHeader() {
     const animeStyles = useMemo(() => makeAnimeStyles(colors), [colors]);
     return (
         <>
-            <Image
-                source={require("../../../assets/images/atackOnTitan.png")}
-                style={animeStyles.cover}
-            />
+            <View style={animeStyles.coverContainer}>
+                <Image
+                    source={require("../../../assets/images/atackOnTitan.png")}
+                    style={animeStyles.cover}
+                />
+                <LinearGradient
+                    colors={["transparent", "transparent", colors.bg]}
+                    locations={[0, 0.2, 1]}
+                    style={animeStyles.coverGradient}
+                />
+            </View>
 
             <View style={animeStyles.content}>
                 <Text style={animeStyles.title}>Attack on Titan</Text>

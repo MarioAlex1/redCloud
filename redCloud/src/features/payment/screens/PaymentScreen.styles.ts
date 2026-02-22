@@ -87,7 +87,7 @@ export function makePaymentStyles(c: Colors) {
 
     payButton: {
         backgroundColor: "#6E1F29",
-        borderRadius: 20,
+        borderRadius: 999,
         paddingVertical: 10,
         paddingHorizontal: 25,
     },

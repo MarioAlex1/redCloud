@@ -57,7 +57,7 @@ export function makeUserStyles(c: Colors, isDark = true) {
         width: 150,
         alignSelf: 'center',
         marginHorizontal: 20,
-        borderRadius: 18,
+        borderRadius: 999,
         paddingVertical: 12,
         alignItems: 'center',
         marginTop: 10,

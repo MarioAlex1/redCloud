@@ -19,6 +19,14 @@ export function makeHomeStyles(c: Colors) {
         justifyContent: "flex-end",
     },
 
+    coverGradient: {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: 220,
+    },
+
     overlay: {
         paddingHorizontal: 20,
         paddingBottom: 30,
@@ -37,7 +45,7 @@ export function makeHomeStyles(c: Colors) {
         flexDirection: "row",
         gap: 6,
         alignItems: "center",
-        borderRadius: 15,
+        borderRadius: 999,
         paddingHorizontal: 25,
         paddingVertical: 8,
         left: 10

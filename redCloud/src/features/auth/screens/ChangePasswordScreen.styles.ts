@@ -40,7 +40,7 @@ export function makeChangePasswordStyles(c: Colors) {
     saveButton: {
         backgroundColor: "#e50914",
         padding: 15,
-        borderRadius: 8,
+        borderRadius: 999,
         alignItems: "center",
         marginTop: 10,
     },

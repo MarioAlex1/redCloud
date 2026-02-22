@@ -1,4 +1,5 @@
 import { View, Text, ImageBackground, TouchableOpacity } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import { Link } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
 import { makeHomeStyles } from "../screens/HomeScreen.styles";
@@ -15,6 +16,11 @@ export default function HomeHeader() {
                 style={homeStyles.titanImage}
                 resizeMode="cover"
             >
+                <LinearGradient
+                    colors={["transparent", "transparent", colors.bg]}
+                    locations={[0, 0.2, 1]}
+                    style={homeStyles.coverGradient}
+                />
                 <View style={homeStyles.overlay}>
                     <View style={homeStyles.buttonsRow}>
                         <Link href="/search" asChild>
