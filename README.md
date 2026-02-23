@@ -243,3 +243,5 @@ Esse projeto marcou uma transição importante na minha evolução como desenvol
 
 
 utilizando api jikan
+
+eas build --plataform android --profile development
