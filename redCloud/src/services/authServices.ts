@@ -1,11 +1,15 @@
-import { initializeApp, getApps } from 'firebase/app';
+import { initializeApp, getApps, getApp } from 'firebase/app';
 import {
-  getAuth,
+  initializeAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  getAuth,
   User,
 } from 'firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const { getReactNativePersistence } = require('firebase/auth');
 
 import firebaseConfig from './firebase';
 
@@ -13,7 +17,14 @@ if (!getApps().length) {
   initializeApp(firebaseConfig);
 }
 
-const auth = getAuth(); //cria auth
+let auth;
+try {
+  auth = initializeAuth(getApp(), {
+    persistence: getReactNativePersistence(AsyncStorage),
+  });
+} catch {
+  auth = getAuth();
+}
 
 export const register = async (
   email: string,
