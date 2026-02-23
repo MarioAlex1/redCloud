@@ -10,6 +10,7 @@ import AnimeSecondaryActions from "../components/AnimeSecondaryActions";
 import SeasonSelector from "../components/SeasonSelector";
 import EpisodeList from "../components/EpisodeList";
 
+// Tela de detalhes do anime com header, ações e lista de episódios
 export default function AnimeDetails() {
     const { colors } = useTheme();
     const animeStyles = useMemo(() => makeAnimeStyles(colors), [colors]);

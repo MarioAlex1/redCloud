@@ -9,6 +9,7 @@ interface Props {
     onChangeText: (text: string) => void;
 }
 
+// Campo de busca com botão de limpar ou microfone
 export default function SearchBar({ value, onChangeText }: Props) {
     const { colors } = useTheme();
     const SearchStyles = useMemo(() => makeSearchStyles(colors), [colors]);

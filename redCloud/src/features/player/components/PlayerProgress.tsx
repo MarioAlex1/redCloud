@@ -3,6 +3,7 @@ import { makePlayerStyles } from "../screens/PlayerScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Barra de progresso do vídeo
 export default function PlayerProgress({
     progress,
 }: {

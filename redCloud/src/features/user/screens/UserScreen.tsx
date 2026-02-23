@@ -10,6 +10,7 @@ import UserFooter from "../../../shared/components/FooterMenu";
 import { useUserPreferences } from "../hooks/useUserPreferences";
 import { useTheme } from '../../../theme/ThemeContext';
 
+// Tela de perfil com foto, opções de conta, preferências e logout
 export default function UserPage() {
     const { colors } = useTheme();
     const { nick, audio, setAudio, subtitle, setSubtitle } = useUserPreferences();

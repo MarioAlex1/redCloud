@@ -3,6 +3,7 @@ import { makeForgotStyles } from "../screens/ForgotScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Título e subtítulo da tela de recuperação de senha
 export default function ForgotHeader() {
     const { colors } = useTheme();
     const forgotStyles = useMemo(() => makeForgotStyles(colors), [colors]);

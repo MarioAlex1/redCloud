@@ -4,6 +4,7 @@ import { makeChangePasswordStyles } from "../screens/ChangePasswordScreen.styles
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Botão de salvar e link de voltar da tela de troca de senha
 export default function ChangePasswordActions({ onSave }: { onSave: () => void }) {
     const { colors } = useTheme();
     const s = useMemo(() => makeChangePasswordStyles(colors), [colors]);

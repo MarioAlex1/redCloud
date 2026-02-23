@@ -4,6 +4,7 @@ import { makePlanStyles } from "../screens/PlanScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Lista de benefícios do plano Prime
 export default function PlanBenefits() {
     const { colors } = useTheme();
     const PlanStyles = useMemo(() => makePlanStyles(colors), [colors]);

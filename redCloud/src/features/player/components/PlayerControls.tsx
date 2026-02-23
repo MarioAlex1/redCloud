@@ -11,6 +11,7 @@ interface Props {
     onTogglePlay: () => void;
 }
 
+// Controles sobrepostos ao vídeo: título, play/pause e barra de progresso
 export default function PlayerControls({
     paused,
     progress,

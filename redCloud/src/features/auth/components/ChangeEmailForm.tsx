@@ -11,6 +11,7 @@ interface Props {
     onChangeNew: (v: string) => void;
 }
 
+// Campos de email atual e novo email com mensagem de feedback
 export default function ChangeEmailForm({
     currentEmail,
     newEmail,

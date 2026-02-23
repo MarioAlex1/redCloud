@@ -3,6 +3,7 @@ import { ReactNode, useMemo } from "react";
 import { makePlayerStyles } from "../screens/PlayerScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 
+// Área do vídeo como ImageBackground, renderiza controles como children
 export default function PlayerVideo({
     children,
 }: {

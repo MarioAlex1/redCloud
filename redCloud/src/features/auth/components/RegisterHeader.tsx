@@ -3,6 +3,7 @@ import { makeRegisterStyles } from "../screens/RegisterScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Título e subtítulo da tela de registro
 export default function RegisterHeader() {
     const { colors } = useTheme();
     const registerStyles = useMemo(() => makeRegisterStyles(colors), [colors]);

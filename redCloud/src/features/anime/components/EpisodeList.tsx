@@ -1,4 +1,3 @@
-// EpisodeList.tsx
 import EpisodeCard from "./EpisodeCard";
 
 const episodes = [
@@ -11,6 +10,7 @@ const episodes = [
     },
 ];
 
+// Lista os episódios da temporada selecionada
 export default function EpisodeList({ season }: { season?: number }) {
     return (
         <>

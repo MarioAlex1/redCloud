@@ -6,6 +6,7 @@ import { makeHomeStyles } from "../screens/HomeScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Banner de destaque com imagem, gradiente e botões de ação
 export default function HomeHeader() {
     const { colors } = useTheme();
     const homeStyles = useMemo(() => makeHomeStyles(colors), [colors]);

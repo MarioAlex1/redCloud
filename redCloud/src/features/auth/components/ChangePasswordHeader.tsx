@@ -3,6 +3,7 @@ import { makeChangePasswordStyles } from "../screens/ChangePasswordScreen.styles
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Título e subtítulo da tela de troca de senha
 export default function ChangePasswordHeader() {
     const { colors } = useTheme();
     const s = useMemo(() => makeChangePasswordStyles(colors), [colors]);

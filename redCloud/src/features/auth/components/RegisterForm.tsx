@@ -8,6 +8,7 @@ import SocialButtons from "../../../shared/components/SocialButton";
 import { Link } from "expo-router";
 import { useRegister } from "../hooks/useRegister";
 
+// Formulário de registro com nick, email, senha e botão de criar conta
 export default function RegisterForm() {
   const { colors } = useTheme();
   const registerStyles = useMemo(() => makeRegisterStyles(colors), [colors]);

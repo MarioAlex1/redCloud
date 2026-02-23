@@ -5,6 +5,7 @@ import { makeUserStyles } from "../screens/UserScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Opções de conta: plano, trocar email e trocar senha
 export default function UserAccountOptions() {
     const { colors, theme } = useTheme();
     const UserStyles = useMemo(() => makeUserStyles(colors, theme === 'dark'), [colors, theme]);

@@ -3,6 +3,7 @@ import { makeChangeEmailStyles } from "../screens/ChangeEmailScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Título e subtítulo da tela de troca de email
 export default function ChangeEmailHeader() {
     const { colors } = useTheme();
     const s = useMemo(() => makeChangeEmailStyles(colors), [colors]);

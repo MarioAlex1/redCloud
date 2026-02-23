@@ -26,6 +26,7 @@ const content = {
     },
 };
 
+// Estado vazio da aba ativa com imagem, mensagem e botão de ação
 export default function ListEmptyState({ tab }: { tab: ListTab }) {
     const { colors } = useTheme();
     const ListStyles = useMemo(() => makeListStyles(colors), [colors]);

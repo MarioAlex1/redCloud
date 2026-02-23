@@ -4,6 +4,7 @@ import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 import { useProcessing } from "../hooks/useProcessing";
 
+// Tela de processamento do pagamento com indicador de loading
 export default function ProcessingScreen() {
   const { colors } = useTheme();
   const processingStyles = useMemo(() => makeProcessingStyles(colors), [colors]);

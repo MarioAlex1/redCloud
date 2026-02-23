@@ -1,10 +1,10 @@
-// EpisodeCard.tsx
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { makeAnimeStyles } from "../screens/AnimeScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Card de um episódio com imagem, informações e botão de download
 export default function EpisodeCard({ episode }: any) {
     const { colors } = useTheme();
     const animeStyles = useMemo(() => makeAnimeStyles(colors), [colors]);

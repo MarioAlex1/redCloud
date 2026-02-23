@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { usePayment } from "../hooks/usePayment";
 import PaymentMethod from "../components/PaymentMethod";
 
+// Tela de pagamento com código presente, métodos disponíveis e botão pagar
 export default function PaymentScreen() {
   const { colors } = useTheme();
   const PaymentStyles = useMemo(() => makePaymentStyles(colors), [colors]);

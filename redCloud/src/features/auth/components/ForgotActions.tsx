@@ -4,6 +4,7 @@ import { makeForgotStyles } from "../screens/ForgotScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Botão de enviar link de recuperação e opção de voltar para login
 export default function ForgotActions({
     onSend,
 }: {

@@ -1,4 +1,3 @@
-// Aqui vai ser a tela onde vai ficar a rota /home
 import { View, ScrollView } from "react-native";
 import { Stack } from "expo-router";
 import { makeHomeStyles } from "./HomeScreen.styles";
@@ -9,6 +8,7 @@ import HomeHeader from "../components/HomeHeader";
 import HomeSection from "../components/HomeSection";
 import HomeFooter from "../../../shared/components/FooterMenu";
 
+// Tela home com banner de destaque e seções de ranking
 export default function HomePage() {
     const { colors } = useTheme();
     const homeStyles = useMemo(() => makeHomeStyles(colors), [colors]);

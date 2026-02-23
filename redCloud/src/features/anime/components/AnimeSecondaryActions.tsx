@@ -4,6 +4,7 @@ import { makeAnimeStyles } from "../screens/AnimeScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Ações secundárias: minha lista, gostei e compartilhar
 export default function AnimeSecondaryActions({
     liked,
     onToggleLike,

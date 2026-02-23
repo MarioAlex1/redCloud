@@ -4,6 +4,7 @@ import { makeAnimeStyles } from "../screens/AnimeScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Capa com gradiente, título, chips de info e descrição do anime
 export default function AnimeHeader() {
     const { colors } = useTheme();
     const animeStyles = useMemo(() => makeAnimeStyles(colors), [colors]);

@@ -5,6 +5,7 @@ import { makeAnimeStyles } from "../screens/AnimeScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Botões de assistir e baixar o anime
 export default function AnimeActions() {
     const { colors } = useTheme();
     const animeStyles = useMemo(() => makeAnimeStyles(colors), [colors]);

@@ -3,6 +3,7 @@ import { makeLoginStyles } from "../screens/LoginScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Título e subtítulo da tela de login
 export default function LoginHeader() {
     const { colors } = useTheme();
     const loginStyles = useMemo(() => makeLoginStyles(colors), [colors]);

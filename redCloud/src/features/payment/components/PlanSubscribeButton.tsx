@@ -4,6 +4,7 @@ import { makePlanStyles } from "../screens/PlanScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Botão que navega para a tela de pagamento
 export default function PlanSubscribeButton() {
     const { colors } = useTheme();
     const PlanStyles = useMemo(() => makePlanStyles(colors), [colors]);

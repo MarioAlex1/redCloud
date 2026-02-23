@@ -11,6 +11,7 @@ import UserFooter from "../../../shared/components/FooterMenu";
 
 export type ListTab = "assistidos" | "naoAssistidos" | "downloads";
 
+// Tela de minha lista com tabs e estado vazio por aba
 export default function ListPage() {
     const { colors } = useTheme();
     const ListStyles = useMemo(() => makeListStyles(colors), [colors]);

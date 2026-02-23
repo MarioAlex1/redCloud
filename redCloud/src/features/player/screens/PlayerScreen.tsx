@@ -8,6 +8,7 @@ import PlayerVideo from "../components/PlayerVideo";
 import PlayerControls from "../components/PlayerControls";
 import { usePlayer } from "../hooks/usePlayer";
 
+// Tela do player em fullscreen com controles ocultáveis
 export default function PlayerPage() {
     const { colors } = useTheme();
     const playerStyles = useMemo(() => makePlayerStyles(colors), [colors]);

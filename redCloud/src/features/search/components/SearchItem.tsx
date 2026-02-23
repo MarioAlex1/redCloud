@@ -9,6 +9,7 @@ interface Props {
     image: any;
 }
 
+// Item de resultado de busca com imagem, título e botão de play
 export default function SearchItem({ title, image }: Props) {
     const { colors } = useTheme();
     const SearchStyles = useMemo(() => makeSearchStyles(colors), [colors]);

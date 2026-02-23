@@ -6,6 +6,7 @@ import { useMemo } from "react";
 
 const seasons = [1, 2, 3, 4];
 
+// Dropdown para selecionar a temporada do anime
 export default function SeasonSelector({
     selectedSeason,
     open,

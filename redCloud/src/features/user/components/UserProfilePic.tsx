@@ -3,6 +3,7 @@ import { makeUserStyles } from "../screens/UserScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
+// Foto de perfil e nickname do usuário
 export default function UserProfilePic({ nick }: { nick: string }) {
     const { colors } = useTheme();
     const UserStyles = useMemo(() => makeUserStyles(colors), [colors]);

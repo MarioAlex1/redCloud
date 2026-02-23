@@ -4,6 +4,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { makeListStyles } from "../screens/ListScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 
+// Cabeçalho com título e toggle de barra de busca
 export default function ListHeader() {
     const { colors } = useTheme();
     const ListStyles = useMemo(() => makeListStyles(colors), [colors]);

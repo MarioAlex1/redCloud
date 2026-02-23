@@ -11,6 +11,7 @@ type Props = {
   onPress: () => void;
 };
 
+// Item selecionável de método de pagamento com ícone e indicador de seleção
 export default function PaymentMethod({ label, selected, onPress }: Props) {
   const { colors } = useTheme();
   const PaymentStyles = useMemo(() => makePaymentStyles(colors), [colors]);

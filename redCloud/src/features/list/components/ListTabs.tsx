@@ -9,6 +9,7 @@ interface Props {
     onChange: (tab: ListTab) => void;
 }
 
+// Tabs para alternar entre assistidos, não assistidos e downloads
 export default function ListTabs({ activeTab, onChange }: Props) {
     const { colors } = useTheme();
     const ListStyles = useMemo(() => makeListStyles(colors), [colors]);

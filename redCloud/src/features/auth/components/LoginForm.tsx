@@ -8,6 +8,7 @@ import { useTheme } from "../../../theme/ThemeContext";
 import SocialButtons from "../../../shared/components/SocialButton";
 import { useLogin } from "../hooks/useLogin";
 
+// Formulário de login com email, senha, lembrar-me e botão de entrar
 export default function LoginForm() {
   const { colors } = useTheme();
   const loginStyles = useMemo(() => makeLoginStyles(colors), [colors]);

@@ -8,6 +8,7 @@ interface Props {
     onChangeEmail: (v: string) => void;
 }
 
+// Campo de email para recuperação de senha
 export default function ForgotForm({ email, onChangeEmail }: Props) {
     const { colors } = useTheme();
     const forgotStyles = useMemo(() => makeForgotStyles(colors), [colors]);

@@ -14,6 +14,7 @@ interface Props {
     onChangeConfirm: (v: string) => void;
 }
 
+// Campos de senha atual, nova senha e confirmação com visibilidade toggleável
 export default function ChangePasswordForm({
     currentPassword,
     newPassword,

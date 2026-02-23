@@ -8,6 +8,7 @@ import { useAnimeSearch } from "../hooks/useAnimeSearch";
 import SearchBar from "../components/SearchBar";
 import SearchList from "../components/SearchList";
 
+// Tela de busca com debounce e lista de resultados ou populares
 export default function SearchPage() {
     const { colors } = useTheme();
     const SearchStyles = useMemo(() => makeSearchStyles(colors), [colors]);
