@@ -19,7 +19,9 @@ const firebaseErrorMessages: Record<string, string> = {
   'auth/internal-error': 'Ocorreu um erro interno. Tente novamente.',
 };
 
+// Traduz o código de erro do Firebase para uma mensagem amigável
 export function getFirebaseErrorMessage(error: any): string {
+  // Extrai o código do erro e busca a mensagem correspondente no mapa
   const code: string = error?.code ?? '';
   return firebaseErrorMessages[code] ?? 'Ocorreu um erro inesperado. Tente novamente.';
 }

@@ -18,6 +18,7 @@ if (!getApps().length) {
   initializeApp(firebaseConfig);
 }
 
+// Inicializa o auth com persistência no AsyncStorage, ou reutiliza a instância existente
 let auth;
 try {
   auth = initializeAuth(getApp(), {
@@ -27,31 +28,30 @@ try {
   auth = getAuth();
 }
 
+// Registra o usuário
 export const register = async (
   email: string,
   password: string,
   nick: string
 ): Promise<User> => {
+  // Cria a conta com email/senha e define o nick como displayName
   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-  // Salva o nickname no displayName da conta Firebase
   await updateProfile(userCredential.user, { displayName: nick });
   return userCredential.user;
 };
 
+// Faz o login do usuário
 export const login = async (
   email: string,
   password: string
 ): Promise<User> => {
-  // Faz login com email e senha e retorna o usuário autenticado
-  const userCredential = await signInWithEmailAndPassword(
-    auth,
-    email,
-    password
-  );
+  // Autentica com email e senha e retorna o usuário
+  const userCredential = await signInWithEmailAndPassword(auth, email, password);
   return userCredential.user;
 };
 
+// Faz o logout do usuário
 export const logout = async () => {
-  // Encerra a sessão do usuário
+  // Encerra a sessão ativa no Firebase
   await signOut(auth);
 };

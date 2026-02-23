@@ -1,20 +1,20 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// Salva os dados do usuário localmente como JSON na chave '@user'
+// Salva o usuário
 export const saveUser = async (user: any) => {
   try {
-    // Converte o objeto user para string JSON e grava com AsyncStorage
+    // Converte o objeto para JSON e grava na chave '@user'
     await AsyncStorage.setItem('@user', JSON.stringify(user));
   } catch (error: any) {
     console.log("Erro ao salvar usuário:", error.message);
   }
 };
 
+// Busca o usuário
 export const getUser = async () => {
   try {
-    // Pega a string JSON armazenada na chave '@user'
+    // Lê a chave '@user' e retorna o objeto parseado, ou null se não existir
     const data = await AsyncStorage.getItem('@user');
-    // Se existir, converte de JSON para objeto; caso contrário, retorna null
     return data ? JSON.parse(data) : null;
   } catch (error: any) {
     console.log("Erro ao recuperar usuário:", error.message);
@@ -22,29 +22,31 @@ export const getUser = async () => {
   }
 };
 
+// Remove o usuário
 export const removeUser = async () => {
   try {
-    // Remove a chave e seu conteúdo do AsyncStorage
+    // Apaga as chaves do usuário e do nick juntas
     await AsyncStorage.removeItem('@user');
     await AsyncStorage.removeItem('@userNick');
   } catch (error: any) {
-    // Loga erros, mas não lança para evitar travar a app
     console.log("Erro ao remover usuário:", error.message);
   }
 };
 
-// Salvar nick do usuário
+// Salva o nick
 export const saveNick = async (nick: string) => {
   try {
+    // Grava o nick como string simples na chave '@userNick'
     await AsyncStorage.setItem('@userNick', nick);
   } catch (error: any) {
     console.log("Erro ao salvar nick:", error.message);
   }
 };
 
-// Recuperar nick do usuário
+// Busca o nick
 export const getNick = async (): Promise<string | null> => {
   try {
+    // Retorna o nick armazenado, ou null se não existir
     return await AsyncStorage.getItem('@userNick');
   } catch (error: any) {
     console.log("Erro ao recuperar nick:", error.message);
@@ -52,34 +54,33 @@ export const getNick = async (): Promise<string | null> => {
   }
 };
 
-// Remover nick
+// Remove o nick
 export const removeNick = async () => {
   try {
+    // Apaga a chave '@userNick' do storage
     await AsyncStorage.removeItem('@userNick');
   } catch (error: any) {
     console.log("Erro ao remover nick:", error.message);
   }
 };
 
-// Salvar preferencias do usuário
+// Salva as preferências
 export const savePreferences = async (prefs: { audio: string; subtitle: string }) => {
   try {
-    // Serializa as preferências e grava no AsyncStorage
+    // Serializa o objeto de preferências e grava na chave '@userPrefs'
     await AsyncStorage.setItem('@userPrefs', JSON.stringify(prefs));
   } catch (error: any) {
-    //loga o erro
     console.log("Erro ao salvar preferências:", error.message);
   }
 };
 
-// Recupera preferências
+// Busca as preferências
 export const getPreferences = async (): Promise<{ audio: string; subtitle: string } | null> => {
   try {
-    // Lê a string JSON e converte para objeto, se existir
+    // Lê e parseia as preferências, retornando null se não houver nada salvo
     const data = await AsyncStorage.getItem('@userPrefs');
     return data ? JSON.parse(data) : null;
   } catch (error: any) {
-    // Em caso de erro, loga e retorna null
     console.log("Erro ao recuperar preferências:", error.message);
     return null;
   }

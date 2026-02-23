@@ -3,6 +3,7 @@ import { MalRankingItem, MalRankingType, MalSearchItem } from '../types/mal';
 
 const MAL_CLIENT_ID = process.env.EXPO_PUBLIC_MAL_CLIENT_ID ?? '';
 
+// Instância do axios configurada com a base URL e o client ID do MAL
 const malApi = axios.create({
   baseURL: 'https://api.myanimelist.net/v2',
   headers: {
@@ -10,11 +11,13 @@ const malApi = axios.create({
   },
 });
 
+// Busca animes por nome
 export const searchAnime = async (
   query: string,
   limit = 20,
 ): Promise<MalSearchItem[]> => {
   try {
+    // Faz GET na rota /anime com o termo de busca e retorna a lista de resultados
     const response = await malApi.get<{ data: MalSearchItem[] }>(
       `/anime?q=${encodeURIComponent(query)}&limit=${limit}&fields=main_picture,mean`,
     );
@@ -26,11 +29,13 @@ export const searchAnime = async (
   }
 };
 
+// Busca o ranking de animes
 export const getAnimeRanking = async (
   rankingType: MalRankingType = 'all',
   limit = 20,
 ): Promise<MalRankingItem[]> => {
   try {
+    // Faz GET na rota /anime/ranking pelo tipo de ranking e retorna a lista ordenada
     const response = await malApi.get<{ data: MalRankingItem[] }>(
       `/anime/ranking?ranking_type=${rankingType}&limit=${limit}&fields=main_picture,mean`,
     );

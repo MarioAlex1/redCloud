@@ -16,7 +16,7 @@ export default function PlayerPage() {
     const [progress, setProgress] = useState(0.1);
     const [showControls, setShowControls] = useState(true);
 
-    /* FULLSCREEN */
+    // Força orientação landscape e esconde a navigation bar ao entrar na tela
     useEffect(() => {
         ScreenOrientation.lockAsync(
             ScreenOrientation.OrientationLock.LANDSCAPE
@@ -33,7 +33,7 @@ export default function PlayerPage() {
         };
     }, []);
 
-    /* ESCONDER CONTROLES */
+    // Esconde os controles automaticamente após 3 segundos de inatividade
     useEffect(() => {
         if (!showControls) return;
 

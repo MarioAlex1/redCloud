@@ -19,6 +19,7 @@ export default function HomeSection({ title, rankingType = 'all', limit = 20 }: 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+    // Busca o ranking da MAL API ao montar ou quando o tipo/limite mudar
     useEffect(() => {
         let active = true;
         setLoading(true);

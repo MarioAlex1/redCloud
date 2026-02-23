@@ -15,6 +15,7 @@ export default function ChangeEmailPage() {
     const [newEmail, setNewEmail] = useState("");
     const [message, setMessage] = useState("");
 
+    // Valida os campos e exibe mensagem de sucesso ou erro
     const handleChange = () => {
         if (!currentEmail || !newEmail) {
             setMessage("Preencha todos os campos.");

@@ -16,6 +16,7 @@ export default function ChangePasswordPage() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [message, setMessage] = useState("");
 
+    // Valida os campos, confirma as senhas e exibe mensagem de sucesso ou erro
     const handleChange = () => {
         if (!currentPassword || !newPassword || !confirmPassword) {
             setMessage("Preencha todos os campos.");

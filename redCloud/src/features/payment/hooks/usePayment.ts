@@ -11,6 +11,7 @@ export function usePayment() {
     { id: "pix", label: "Pix", icon: "pix" },
   ];
 
+  // Redireciona para a tela de processamento se houver método selecionado
   function handlePay() {
     if (!selectedMethod) return;
     router.push("/processing");

@@ -17,6 +17,7 @@ export default function SearchList({ query }: Props) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+    // Busca por nome se houver query, ou exibe os mais populares por padrão
     useEffect(() => {
         let active = true;
         setLoading(true);

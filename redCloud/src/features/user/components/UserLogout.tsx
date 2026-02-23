@@ -13,10 +13,12 @@ export default function UserLogout() {
   const [showModal, setShowModal] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  // Verifica no storage se há usuário logado ao montar o componente
   useEffect(() => {
     authStorage.getUser().then((user) => setIsLoggedIn(!!user));
   }, []);
 
+  // Faz logout no Firebase, limpa o storage e redireciona para login
   const handleLogout = async () => {
     try {
       await authService.logout();

@@ -16,6 +16,7 @@ const ThemeContext = createContext<ThemeContextData>({
     toggleTheme: () => {},
 });
 
+// Provedor global de tema — envolve o app e fornece cores e o toggleTheme
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const [theme, setTheme] = useState<ThemeMode>("dark");
 
@@ -28,6 +29,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         });
     }, []);
 
+    // Alterna entre dark/light e persiste a escolha no AsyncStorage
     const toggleTheme = () => {
         const next: ThemeMode = theme === "dark" ? "light" : "dark";
         setTheme(next);

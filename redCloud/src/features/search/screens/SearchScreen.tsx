@@ -15,6 +15,7 @@ export default function SearchPage() {
     const [debouncedQuery, setDebouncedQuery] = useState('');
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+    // Aplica debounce de 500ms no input para evitar chamadas desnecessárias à API
     useEffect(() => {
         if (timerRef.current) clearTimeout(timerRef.current);
         timerRef.current = setTimeout(() => {

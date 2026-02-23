@@ -14,8 +14,8 @@ export default function ForgotPasswordPage() {
     const forgotStyles = useMemo(() => makeForgotStyles(colors), [colors]);
     const [email, setEmail] = useState("");
 
+    // Envia o link de redefinição para o email informado (lógica de API pendente)
     const handleSend = () => {
-        // futura lógica de API
         console.log("Enviar link para:", email);
     };
 

@@ -18,7 +18,7 @@ export default function UserPage() {
     const [audio, setAudio] = useState("Português");
     const [subtitle, setSubtitle] = useState("N/A");
 
-    // carregar as preferencias ao iniciar
+    // Carrega as preferências e o nick salvos ao montar a tela
     useEffect(() => {
         const loadPreferences = async () => {
             const prefs = await authStorage.getPreferences();
@@ -32,7 +32,7 @@ export default function UserPage() {
         loadPreferences();
     }, []);
 
-    // Salvar preferências sempre que mudarem
+    // Persiste as preferências sempre que o usuário as alterar
     useEffect(() => {
         authStorage.savePreferences({ audio, subtitle });
     }, [audio, subtitle]);
