@@ -245,3 +245,5 @@ Esse projeto marcou uma transição importante na minha evolução como desenvol
 utilizando api jikan
 
 eas build --plataform android --profile development
+
+https://myanimelist.net/apiconfig/references/api/v2#section/Versioning
