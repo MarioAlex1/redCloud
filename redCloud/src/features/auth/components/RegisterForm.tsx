@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { View, TextInput, TouchableOpacity, Text } from "react-native";
 import Checkbox from "expo-checkbox";
 import { router } from "expo-router";
+import { MaterialIcons } from "@expo/vector-icons";
 import { makeRegisterStyles } from "../screens/RegisterScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import SocialButtons from "../../../shared/components/SocialButton";
@@ -18,6 +19,8 @@ export default function RegisterForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -77,23 +80,33 @@ export default function RegisterForm() {
         onChangeText={setEmail}
       />
 
-      <TextInput
-        placeholder="Senha"
-        placeholderTextColor="#777"
-        secureTextEntry
-        style={registerStyles.input}
-        value={password}
-        onChangeText={setPassword}
-      />
+      <View style={[registerStyles.input, { flexDirection: "row", alignItems: "center", padding: 0, paddingHorizontal: 18 }]}>
+        <TextInput
+          placeholder="Senha"
+          placeholderTextColor="#777"
+          secureTextEntry={!showPassword}
+          style={{ flex: 1, fontSize: 16, paddingVertical: 18, color: "#333" }}
+          value={password}
+          onChangeText={setPassword}
+        />
+        <TouchableOpacity onPress={() => setShowPassword(v => !v)}>
+          <MaterialIcons name={showPassword ? "visibility-off" : "visibility"} size={22} color="#777" />
+        </TouchableOpacity>
+      </View>
 
-      <TextInput
-        placeholder="Confirmar Senha"
-        placeholderTextColor="#777"
-        secureTextEntry
-        style={registerStyles.input}
-        value={confirmPassword}
-        onChangeText={setConfirmPassword}
-      />
+      <View style={[registerStyles.input, { flexDirection: "row", alignItems: "center", padding: 0, paddingHorizontal: 18 }]}>
+        <TextInput
+          placeholder="Confirmar Senha"
+          placeholderTextColor="#777"
+          secureTextEntry={!showConfirmPassword}
+          style={{ flex: 1, fontSize: 16, paddingVertical: 18, color: "#333" }}
+          value={confirmPassword}
+          onChangeText={setConfirmPassword}
+        />
+        <TouchableOpacity onPress={() => setShowConfirmPassword(v => !v)}>
+          <MaterialIcons name={showConfirmPassword ? "visibility-off" : "visibility"} size={22} color="#777" />
+        </TouchableOpacity>
+      </View>
 
       <View style={registerStyles.checkboxRow}>
         <Checkbox

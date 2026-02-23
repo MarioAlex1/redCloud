@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { View, TextInput, TouchableOpacity, Text } from "react-native";
 import Checkbox from "expo-checkbox";
 import { Link, router } from "expo-router";
+import { MaterialIcons } from "@expo/vector-icons";
 import { makeLoginStyles } from "../screens/LoginScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import SocialButtons from "../../../shared/components/SocialButton";
@@ -15,6 +16,7 @@ export default function LoginForm() {
   const loginStyles = useMemo(() => makeLoginStyles(colors), [colors]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -65,14 +67,19 @@ export default function LoginForm() {
         onChangeText={setEmail}
       />
 
-      <TextInput
-        placeholder="Senha"
-        placeholderTextColor="#777"
-        secureTextEntry
-        style={loginStyles.input}
-        value={password}
-        onChangeText={setPassword}
-      />
+      <View style={[loginStyles.input, { flexDirection: "row", alignItems: "center", padding: 0, paddingHorizontal: 18 }]}>
+        <TextInput
+          placeholder="Senha"
+          placeholderTextColor="#777"
+          secureTextEntry={!showPassword}
+          style={{ flex: 1, fontSize: 16, paddingVertical: 18, color: "#333" }}
+          value={password}
+          onChangeText={setPassword}
+        />
+        <TouchableOpacity onPress={() => setShowPassword(v => !v)}>
+          <MaterialIcons name={showPassword ? "visibility-off" : "visibility"} size={22} color="#777" />
+        </TouchableOpacity>
+      </View>
 
       <View style={loginStyles.checkboxRow}>
         <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
