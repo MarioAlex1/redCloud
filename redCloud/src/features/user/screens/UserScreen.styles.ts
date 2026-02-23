@@ -76,5 +76,69 @@ export function makeUserStyles(c: Colors, isDark = true) {
         fontWeight: 'bold',
         fontSize: 16,
     },
+
+    // Modal de confirmação de logout
+    modalOverlay: {
+        flex: 1,
+        backgroundColor: 'rgba(0,0,0,0.55)',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    modalCard: {
+        backgroundColor: '#fff',
+        borderRadius: 20,
+        padding: 28,
+        width: '80%',
+        alignItems: 'center',
+    },
+
+    modalTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#111',
+        marginBottom: 8,
+    },
+
+    modalSubtitle: {
+        fontSize: 15,
+        color: '#555',
+        textAlign: 'center',
+        marginBottom: 24,
+    },
+
+    modalButtons: {
+        flexDirection: 'row',
+        gap: 12,
+    },
+
+    modalButtonCancel: {
+        flex: 1,
+        paddingVertical: 12,
+        borderRadius: 999,
+        borderWidth: 1,
+        borderColor: c.primary,
+        alignItems: 'center',
+    },
+
+    modalButtonCancelText: {
+        color: c.primary,
+        fontWeight: '600',
+        fontSize: 15,
+    },
+
+    modalButtonConfirm: {
+        flex: 1,
+        paddingVertical: 12,
+        borderRadius: 999,
+        backgroundColor: c.primary,
+        alignItems: 'center',
+    },
+
+    modalButtonConfirmText: {
+        color: '#fff',
+        fontWeight: '600',
+        fontSize: 15,
+    },
     });
 }

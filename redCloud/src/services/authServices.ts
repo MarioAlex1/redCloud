@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
   getAuth,
   User,
 } from 'firebase/auth';
@@ -28,14 +29,12 @@ try {
 
 export const register = async (
   email: string,
-  password: string
+  password: string,
+  nick: string
 ): Promise<User> => {
-  // Cria um novo usuário com email e senha e retorna o objeto User do Firebase
-  const userCredential = await createUserWithEmailAndPassword(
-    auth,
-    email,
-    password
-  );
+  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  // Salva o nickname no displayName da conta Firebase
+  await updateProfile(userCredential.user, { displayName: nick });
   return userCredential.user;
 };
 

@@ -35,6 +35,11 @@ export default function LoginForm() {
       // Salva localmente no AsyncStorage
       await authStorage.saveUser(user);
 
+      // Recupera o nickname salvo no Firebase (displayName) e salva localmente
+      if (user.displayName) {
+        await authStorage.saveNick(user.displayName);
+      }
+
       // Redireciona para home
       router.replace("/home");
     } catch (error: any) {

@@ -36,8 +36,8 @@ export default function RegisterForm() {
     setLoading(true);
 
     try {
-      // Cria usuário no Firebase Auth
-      const user = await authService.register(email, password);
+      // Cria usuário no Firebase Auth com nickname
+      const user = await authService.register(email, password, nick);
 
       // Salva localmente no AsyncStorage
       await authStorage.saveUser(user);
