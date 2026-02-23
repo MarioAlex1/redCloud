@@ -8,6 +8,7 @@ import SocialButtons from "../../../shared/components/SocialButton";
 
 import * as authStorage from '../../../storage/authStorage';
 import * as authService from '../../../services/authServices';
+import { getFirebaseErrorMessage } from '../../../services/firebaseErrors';
 
 export default function LoginForm() {
   const { colors } = useTheme();
@@ -35,8 +36,7 @@ export default function LoginForm() {
       // Redireciona para home
       router.replace("/home");
     } catch (error: any) {
-      console.log('Erro no login:', error);
-      Alert.alert('Erro', error.message || 'Falha no login');
+      Alert.alert('Erro ao entrar', getFirebaseErrorMessage(error));
     } finally {
       setLoading(false);
     }

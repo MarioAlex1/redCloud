@@ -8,6 +8,7 @@ import SocialButtons from "../../../shared/components/SocialButton";
 
 import * as authStorage from '../../../storage/authStorage';
 import * as authService from '../../../services/authServices';
+import { getFirebaseErrorMessage } from '../../../services/firebaseErrors';
 
 export default function RegisterForm() {
   const { colors } = useTheme();
@@ -41,8 +42,7 @@ export default function RegisterForm() {
       // Redireciona pra home
       router.replace("/home");
     } catch (error: any) {
-      console.log('Erro no registro:', error);
-      Alert.alert('Erro', error.message || 'Falha ao criar conta');
+      Alert.alert('Erro ao criar conta', getFirebaseErrorMessage(error));
     } finally {
       setLoading(false);
     }
