@@ -1,9 +1,9 @@
 import { View, Text, ScrollView, Image, ActivityIndicator } from "react-native";
 import { makeHomeStyles } from "../screens/HomeScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
-import { useMemo, useEffect, useState } from "react";
-import { getAnimeRanking } from "../../../services/malApiService";
-import { MalRankingItem, MalRankingType } from "../../../types/mal";
+import { useMemo } from "react";
+import { MalRankingType } from "../../../types/mal";
+import { useAnimeRanking } from "../hooks/useAnimeRanking";
 
 interface Props {
     title: string;
@@ -14,24 +14,7 @@ interface Props {
 export default function HomeSection({ title, rankingType = 'all', limit = 20 }: Props) {
     const { colors } = useTheme();
     const homeStyles = useMemo(() => makeHomeStyles(colors), [colors]);
-
-    const [items, setItems] = useState<MalRankingItem[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
-    // Busca o ranking da MAL API ao montar ou quando o tipo/limite mudar
-    useEffect(() => {
-        let active = true;
-        setLoading(true);
-        setError(null);
-
-        getAnimeRanking(rankingType, limit)
-            .then((data) => { if (active) setItems(data); })
-            .catch(() => { if (active) setError('Não foi possível carregar. Verifique sua conexão.'); })
-            .finally(() => { if (active) setLoading(false); });
-
-        return () => { active = false; };
-    }, [rankingType, limit]);
+    const { items, loading, error } = useAnimeRanking(rankingType, limit);
 
     return (
         <View style={homeStyles.section}>

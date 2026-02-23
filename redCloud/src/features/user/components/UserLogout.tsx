@@ -2,33 +2,13 @@ import { TouchableOpacity, Text, View, Modal } from "react-native";
 import { router } from "expo-router";
 import { makeUserStyles } from "../screens/UserScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
-import { useMemo, useState, useEffect } from "react";
-
-import * as authService from "../../../services/authServices";
-import * as authStorage from "../../../storage/authStorage";
+import { useMemo } from "react";
+import { useLogout } from "../hooks/useLogout";
 
 export default function UserLogout() {
   const { colors } = useTheme();
   const UserStyles = useMemo(() => makeUserStyles(colors), [colors]);
-  const [showModal, setShowModal] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // Verifica no storage se há usuário logado ao montar o componente
-  useEffect(() => {
-    authStorage.getUser().then((user) => setIsLoggedIn(!!user));
-  }, []);
-
-  // Faz logout no Firebase, limpa o storage e redireciona para login
-  const handleLogout = async () => {
-    try {
-      await authService.logout();
-      await authStorage.removeUser();
-      setShowModal(false);
-      router.replace("/login");
-    } catch {
-      setShowModal(false);
-    }
-  };
+  const { showModal, setShowModal, isLoggedIn, handleLogout } = useLogout();
 
   if (!isLoggedIn) {
     return (

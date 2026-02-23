@@ -2,7 +2,8 @@ import { View, ScrollView } from "react-native";
 import { Stack } from "expo-router";
 import { makeSearchStyles } from "./SearchScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
-import { useMemo, useState, useEffect, useRef } from "react";
+import { useMemo } from "react";
+import { useAnimeSearch } from "../hooks/useAnimeSearch";
 
 import SearchBar from "../components/SearchBar";
 import SearchList from "../components/SearchList";
@@ -10,19 +11,7 @@ import SearchList from "../components/SearchList";
 export default function SearchPage() {
     const { colors } = useTheme();
     const SearchStyles = useMemo(() => makeSearchStyles(colors), [colors]);
-
-    const [inputValue, setInputValue] = useState('');
-    const [debouncedQuery, setDebouncedQuery] = useState('');
-    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-    // Aplica debounce de 500ms no input para evitar chamadas desnecessárias à API
-    useEffect(() => {
-        if (timerRef.current) clearTimeout(timerRef.current);
-        timerRef.current = setTimeout(() => {
-            setDebouncedQuery(inputValue);
-        }, 500);
-        return () => { if (timerRef.current) clearTimeout(timerRef.current); };
-    }, [inputValue]);
+    const { inputValue, setInputValue, items, loading, error, title } = useAnimeSearch();
 
     return (
         <>
@@ -35,7 +24,7 @@ export default function SearchPage() {
                     keyboardShouldPersistTaps="handled"
                 >
                     <SearchBar value={inputValue} onChangeText={setInputValue} />
-                    <SearchList query={debouncedQuery} />
+                    <SearchList items={items} loading={loading} error={error} title={title} />
                 </ScrollView>
             </View>
         </>

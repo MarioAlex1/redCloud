@@ -1,60 +1,27 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { View, TextInput, TouchableOpacity, Text } from "react-native";
 import Checkbox from "expo-checkbox";
-import { router } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
 import { makeRegisterStyles } from "../screens/RegisterScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import SocialButtons from "../../../shared/components/SocialButton";
 import { Link } from "expo-router";
-
-import * as authStorage from '../../../storage/authStorage';
-import * as authService from '../../../services/authServices';
-import { getFirebaseErrorMessage } from '../../../services/firebaseErrors';
+import { useRegister } from "../hooks/useRegister";
 
 export default function RegisterForm() {
   const { colors } = useTheme();
   const registerStyles = useMemo(() => makeRegisterStyles(colors), [colors]);
-  const [nick, setNick] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [checked, setChecked] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
-
-  const handleRegister = async () => {
-    setErrorMsg('');
-    if (!nick || !email || !password || !confirmPassword) {
-      setErrorMsg('Preencha todos os campos.');
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      setErrorMsg('As senhas não conferem.');
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      // Cria usuário no Firebase Auth com nickname
-      const user = await authService.register(email, password, nick);
-
-      // Salva localmente no AsyncStorage
-      await authStorage.saveUser(user);
-      await authStorage.saveNick(nick);
-
-      // Redireciona pra home
-      router.replace("/home");
-    } catch (error: any) {
-      setErrorMsg(getFirebaseErrorMessage(error));
-    } finally {
-      setLoading(false);
-    }
-  };
+  const {
+    nick, setNick,
+    email, setEmail,
+    password, setPassword,
+    confirmPassword, setConfirmPassword,
+    showPassword, setShowPassword,
+    showConfirmPassword, setShowConfirmPassword,
+    checked, setChecked,
+    loading, errorMsg,
+    handleRegister,
+  } = useRegister();
 
   return (
     <>

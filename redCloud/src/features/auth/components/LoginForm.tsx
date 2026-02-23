@@ -1,55 +1,24 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { View, TextInput, TouchableOpacity, Text } from "react-native";
 import Checkbox from "expo-checkbox";
-import { Link, router } from "expo-router";
+import { Link } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
 import { makeLoginStyles } from "../screens/LoginScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import SocialButtons from "../../../shared/components/SocialButton";
-
-import * as authStorage from '../../../storage/authStorage';
-import * as authService from '../../../services/authServices';
-import { getFirebaseErrorMessage } from '../../../services/firebaseErrors';
+import { useLogin } from "../hooks/useLogin";
 
 export default function LoginForm() {
   const { colors } = useTheme();
   const loginStyles = useMemo(() => makeLoginStyles(colors), [colors]);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [checked, setChecked] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
-
-  const handleLogin = async () => {
-    setErrorMsg('');
-    if (!email || !password) {
-      setErrorMsg('Preencha email e senha.');
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      // Faz login no Firebase
-      const user = await authService.login(email, password);
-
-      // Salva localmente no AsyncStorage
-      await authStorage.saveUser(user);
-
-      // Recupera o nickname salvo no Firebase (displayName) e salva localmente
-      if (user.displayName) {
-        await authStorage.saveNick(user.displayName);
-      }
-
-      // Redireciona para home
-      router.replace("/home");
-    } catch (error: any) {
-      setErrorMsg(getFirebaseErrorMessage(error));
-    } finally {
-      setLoading(false);
-    }
-  };
+  const {
+    email, setEmail,
+    password, setPassword,
+    showPassword, setShowPassword,
+    checked, setChecked,
+    loading, errorMsg,
+    handleLogin,
+  } = useLogin();
 
   return (
     <>
