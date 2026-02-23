@@ -10,6 +10,7 @@ export function makeUserStyles(c: Colors, isDark = true) {
         textAlign: 'center',
         marginTop: 90,
         marginBottom: 20,
+        bottom: 30,
     },
 
     profilePicContainer: {
@@ -86,7 +87,7 @@ export function makeUserStyles(c: Colors, isDark = true) {
     },
 
     modalCard: {
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffff',
         borderRadius: 20,
         padding: 28,
         width: '80%',
@@ -96,13 +97,13 @@ export function makeUserStyles(c: Colors, isDark = true) {
     modalTitle: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#111',
+        color: '#111111',
         marginBottom: 8,
     },
 
     modalSubtitle: {
         fontSize: 15,
-        color: '#555',
+        color: '#555555',
         textAlign: 'center',
         marginBottom: 24,
     },
@@ -117,12 +118,12 @@ export function makeUserStyles(c: Colors, isDark = true) {
         paddingVertical: 12,
         borderRadius: 999,
         borderWidth: 1,
-        borderColor: c.primary,
+        borderColor: '#6E1F29',
         alignItems: 'center',
     },
 
     modalButtonCancelText: {
-        color: c.primary,
+        color: '#6E1F29',
         fontWeight: '600',
         fontSize: 15,
     },
@@ -131,7 +132,7 @@ export function makeUserStyles(c: Colors, isDark = true) {
         flex: 1,
         paddingVertical: 12,
         borderRadius: 999,
-        backgroundColor: c.primary,
+        backgroundColor: '#6E1F29',
         alignItems: 'center',
     },
 

@@ -5,6 +5,7 @@ import { router } from "expo-router";
 import { makeRegisterStyles } from "../screens/RegisterScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import SocialButtons from "../../../shared/components/SocialButton";
+import { Link } from "expo-router";
 
 import * as authStorage from '../../../storage/authStorage';
 import * as authService from '../../../services/authServices';
@@ -115,6 +116,13 @@ export default function RegisterForm() {
       </TouchableOpacity>
 
       <SocialButtons message="Ou cadastre-se com"/>
+
+      <View style={registerStyles.loginRow}>
+        <Text style={registerStyles.loginText}>Já tem uma conta? </Text>
+        <Link href="/login" style={registerStyles.loginLink}>
+          Faça Login
+        </Link>
+      </View>
     </>
   );
 }

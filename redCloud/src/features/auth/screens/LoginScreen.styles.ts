@@ -98,5 +98,24 @@ export function makeLoginStyles(c: Colors) {
         fontSize: 13,
         fontWeight: "500",
     },
+
+    registerRow: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: -5,
+    },
+
+    registerText: {
+        fontSize: 15,
+        color: "#555",
+    },
+
+    registerLink: {
+        fontSize: 15,
+        color: "#6E1F29",
+        fontWeight: "700",
+        textDecorationLine: "underline",
+    },
     });
 }

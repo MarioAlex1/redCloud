@@ -11,7 +11,7 @@ export function makeRegisterStyles(c: Colors) {
         width: "100%",
         height: "100%",
         padding: 20,
-        paddingTop: "38%",
+        paddingTop: "33%",
         backgroundColor: c.surface, // surface card
         borderRadius: 75,
 
@@ -92,6 +92,25 @@ export function makeRegisterStyles(c: Colors) {
         color: "#B41E1E",
         fontSize: 13,
         fontWeight: "500",
+    },
+
+    loginRow: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: -5,
+    },
+
+    loginText: {
+        fontSize: 15,
+        color: "#555",
+    },
+
+    loginLink: {
+        fontSize: 15,
+        color: "#6E1F29",
+        fontWeight: "700",
+        textDecorationLine: "underline",
     },
     });
 }

@@ -4,7 +4,7 @@ import { Colors } from "../../theme/colors";
 export function makeSocialStyles(_c: Colors) {
     return StyleSheet.create({
   message: {
-    top: 35,
+    marginTop: 20,
     fontSize: 16,
     alignSelf: 'center',
     color: "gray",
@@ -13,7 +13,8 @@ export function makeSocialStyles(_c: Colors) {
     flexDirection: "row",
     justifyContent: "center",
     gap: 20,
-    marginTop: 40,
+    marginTop: 3,
+    marginBottom: 10,
   },
   button: {
     padding: 10,

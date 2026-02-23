@@ -99,6 +99,13 @@ export default function LoginForm() {
       </TouchableOpacity>
 
       <SocialButtons message="Ou continue com"/>
+
+      <View style={loginStyles.registerRow}>
+        <Text style={loginStyles.registerText}>Não tem uma conta? </Text>
+        <Link href="/register" style={loginStyles.registerLink}>
+          Registre-se
+        </Link>
+      </View>
     </>
   );
 }
