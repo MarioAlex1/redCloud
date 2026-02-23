@@ -20,8 +20,8 @@ export default function HomePage() {
                 <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
                     <HomeHeader />
 
-                    <HomeSection title="Populares" />
-                    <HomeSection title="Top 10" />
+                    <HomeSection title="Populares" rankingType="bypopularity" limit={20} />
+                    <HomeSection title="Top 10" rankingType="all" limit={10} />
                 </ScrollView>
 
                 <HomeFooter />

@@ -105,6 +105,47 @@ export function makeHomeStyles(c: Colors) {
         backgroundColor: c.bgDivider,
     },
 
+    cardWrapper: {
+        width: 100,
+        marginRight: 0,
+    },
+
+    cardTitle: {
+        color: c.text,
+        fontSize: 11,
+        fontWeight: '600',
+        marginTop: 6,
+        lineHeight: 15,
+    },
+
+    cardRating: {
+        color: c.primary,
+        fontSize: 11,
+        fontWeight: '700',
+        marginTop: 2,
+    },
+
+    loadingContainer: {
+        height: 150,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    errorContainer: {
+        height: 80,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: c.bgCard,
+        borderRadius: 10,
+        paddingHorizontal: 12,
+    },
+
+    errorText: {
+        color: c.accent,
+        fontSize: 13,
+        textAlign: 'center',
+    },
+
     searchButton: {
         position: "absolute",
         top: -450,

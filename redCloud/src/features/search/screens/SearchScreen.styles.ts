@@ -73,5 +73,51 @@ export function makeSearchStyles(c: Colors) {
         fontWeight: "500",
     },
 
+    // grid de cards
+    gridRow: {
+        justifyContent: 'space-between',
+        marginBottom: 16,
+    },
+
+    gridCard: {
+        width: '31%',
+    },
+
+    gridImage: {
+        width: '100%',
+        aspectRatio: 2 / 3,
+        borderRadius: 10,
+        backgroundColor: c.bgDivider,
+    },
+
+    gridTitle: {
+        color: c.text,
+        fontSize: 11,
+        fontWeight: '600',
+        marginTop: 5,
+        lineHeight: 15,
+    },
+
+    gridRating: {
+        color: c.primary,
+        fontSize: 11,
+        fontWeight: '700',
+        marginTop: 2,
+    },
+
+    errorContainer: {
+        marginTop: 20,
+        padding: 16,
+        backgroundColor: c.bgCard,
+        borderRadius: 10,
+        alignItems: 'center',
+    },
+
+    errorText: {
+        color: c.accent,
+        fontSize: 13,
+        textAlign: 'center',
+    },
+
     });
 }

@@ -1,59 +1,78 @@
-import { View, Text } from "react-native";
+import { View, Text, FlatList, Image, ActivityIndicator } from "react-native";
 import { makeSearchStyles } from "../screens/SearchScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
-import { useMemo } from "react";
-import SearchItem from "./SearchItem";
+import { useMemo, useEffect, useState } from "react";
+import { searchAnime, getAnimeRanking } from "../../../services/malApiService";
+import { MalAnimeNode } from "../../../types/mal";
 
-export default function SearchList() {
+interface Props {
+    query: string;
+}
+
+export default function SearchList({ query }: Props) {
     const { colors } = useTheme();
     const SearchStyles = useMemo(() => makeSearchStyles(colors), [colors]);
+
+    const [items, setItems] = useState<MalAnimeNode[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        let active = true;
+        setLoading(true);
+        setError(null);
+
+        const fetch = query.trim().length > 0
+            ? searchAnime(query.trim(), 21).then(data => data.map(d => d.node))
+            : getAnimeRanking('bypopularity', 21).then(data => data.map(d => d.node));
+
+        fetch
+            .then(nodes => { if (active) setItems(nodes); })
+            .catch(() => { if (active) setError('Não foi possível carregar. Verifique sua conexão.'); })
+            .finally(() => { if (active) setLoading(false); });
+
+        return () => { active = false; };
+    }, [query]);
+
+    const title = query.trim().length > 0 ? `Resultados para "${query}"` : 'Mais Populares';
+
     return (
         <>
             <View style={SearchStyles.titleContainer}>
-                <Text style={SearchStyles.title}>Mais Pesquisados</Text>
+                <Text style={SearchStyles.title}>{title}</Text>
             </View>
 
-            <View style={SearchStyles.listContainer}>
-                <SearchItem
-                    title="Naruto"
-                    image={require("../../../assets/images/narutin.png")}
-                />
+            {loading && (
+                <ActivityIndicator size="large" color={colors.primary} style={{ marginTop: 40 }} />
+            )}
 
-                <SearchItem
-                    title="One Piece"
-                    image={require("../../../assets/images/one-piece.png")}
-                />
+            {!loading && error && (
+                <View style={SearchStyles.errorContainer}>
+                    <Text style={SearchStyles.errorText}>{error}</Text>
+                </View>
+            )}
 
-                <SearchItem
-                    title="Gachiakuta"
-                    image={require("../../../assets/images/gachakuta.png")}
+            {!loading && !error && (
+                <FlatList
+                    data={items}
+                    keyExtractor={item => String(item.id)}
+                    numColumns={3}
+                    scrollEnabled={false}
+                    columnWrapperStyle={SearchStyles.gridRow}
+                    renderItem={({ item }) => (
+                        <View style={SearchStyles.gridCard}>
+                            <Image
+                                source={{ uri: item.main_picture?.large ?? item.main_picture?.medium }}
+                                style={SearchStyles.gridImage}
+                            />
+                            <Text style={SearchStyles.gridTitle} numberOfLines={2}>{item.title}</Text>
+                            {item.mean != null && (
+                                <Text style={SearchStyles.gridRating}>★ {item.mean.toFixed(1)}</Text>
+                            )}
+                        </View>
+                    )}
                 />
-
-                <SearchItem
-                    title="Jujutsu Kaisen"
-                    image={require("../../../assets/images/jujutsu-kaisen.png")}
-                />
-
-                <SearchItem
-                    title="Chainsaw Man"
-                    image={require("../../../assets/images/chainsaw.png")}
-                />
-
-                <SearchItem
-                    title="Attack on Titan"
-                    image={require("../../../assets/images/attack-titan.png")}
-                />
-
-                <SearchItem
-                    title="One Punch Man"
-                    image={require("../../../assets/images/one-punch-man.png")}
-                />
-
-                <SearchItem
-                    title="Your Name"
-                    image={require("../../../assets/images/your-name.png")}
-                />
-            </View>
+            )}
         </>
     );
 }

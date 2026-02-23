@@ -4,7 +4,12 @@ import { makeSearchStyles } from "../screens/SearchScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
-export default function SearchBar() {
+interface Props {
+    value: string;
+    onChangeText: (text: string) => void;
+}
+
+export default function SearchBar({ value, onChangeText }: Props) {
     const { colors } = useTheme();
     const SearchStyles = useMemo(() => makeSearchStyles(colors), [colors]);
     return (
@@ -13,11 +18,19 @@ export default function SearchBar() {
                 placeholder="Buscar anime..."
                 placeholderTextColor="#aaa"
                 style={SearchStyles.searchInput}
+                value={value}
+                onChangeText={onChangeText}
+                returnKeyType="search"
             />
-
-            <TouchableOpacity style={SearchStyles.voiceButton}>
-                <MaterialIcons name="mic" size={24} color={colors.text} />
-            </TouchableOpacity>
+            {value.length > 0 ? (
+                <TouchableOpacity style={SearchStyles.voiceButton} onPress={() => onChangeText('')}>
+                    <MaterialIcons name="close" size={24} color={colors.text} />
+                </TouchableOpacity>
+            ) : (
+                <TouchableOpacity style={SearchStyles.voiceButton}>
+                    <MaterialIcons name="mic" size={24} color={colors.text} />
+                </TouchableOpacity>
+            )}
         </View>
     );
 }
