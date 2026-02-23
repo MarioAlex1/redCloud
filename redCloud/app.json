@@ -15,7 +15,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.android.redcloud"
+      "bundleIdentifier": "com.redcloud.app"
     },
     "android": {
       "adaptiveIcon": {
