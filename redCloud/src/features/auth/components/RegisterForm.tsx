@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { View, TextInput, TouchableOpacity, Text, Alert } from "react-native";
+import { View, TextInput, TouchableOpacity, Text } from "react-native";
 import Checkbox from "expo-checkbox";
 import { router } from "expo-router";
 import { makeRegisterStyles } from "../screens/RegisterScreen.styles";
@@ -13,20 +13,23 @@ import { getFirebaseErrorMessage } from '../../../services/firebaseErrors';
 export default function RegisterForm() {
   const { colors } = useTheme();
   const registerStyles = useMemo(() => makeRegisterStyles(colors), [colors]);
+  const [nick, setNick] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleRegister = async () => {
-    if (!email || !password || !confirmPassword) {
-      Alert.alert('Erro', 'Preencha todos os campos');
+    setErrorMsg('');
+    if (!nick || !email || !password || !confirmPassword) {
+      setErrorMsg('Preencha todos os campos.');
       return;
     }
 
     if (password !== confirmPassword) {
-      Alert.alert('Erro', 'Senhas não conferem');
+      setErrorMsg('As senhas não conferem.');
       return;
     }
 
@@ -38,11 +41,12 @@ export default function RegisterForm() {
 
       // Salva localmente no AsyncStorage
       await authStorage.saveUser(user);
+      await authStorage.saveNick(nick);
 
       // Redireciona pra home
       router.replace("/home");
     } catch (error: any) {
-      Alert.alert('Erro ao criar conta', getFirebaseErrorMessage(error));
+      setErrorMsg(getFirebaseErrorMessage(error));
     } finally {
       setLoading(false);
     }
@@ -50,8 +54,22 @@ export default function RegisterForm() {
 
   return (
     <>
+      {errorMsg !== '' && (
+        <View style={registerStyles.errorBox}>
+          <Text style={registerStyles.errorText}>{errorMsg}</Text>
+        </View>
+      )}
+
       <TextInput
-        placeholder="Email ou nome de usuário"
+        placeholder="Nickname"
+        placeholderTextColor="#777"
+        style={registerStyles.input}
+        value={nick}
+        onChangeText={setNick}
+      />
+
+      <TextInput
+        placeholder="Email"
         placeholderTextColor="#777"
         style={registerStyles.input}
         value={email}

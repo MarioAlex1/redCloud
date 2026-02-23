@@ -82,5 +82,21 @@ export function makeLoginStyles(c: Colors) {
         fontSize: 16,
         textDecorationLine: "underline",
     },
+
+    errorBox: {
+        backgroundColor: "rgba(180, 30, 30, 0.12)",
+        borderLeftWidth: 4,
+        borderLeftColor: "#B41E1E",
+        borderRadius: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 14,
+        marginBottom: 12,
+    },
+
+    errorText: {
+        color: "#B41E1E",
+        fontSize: 13,
+        fontWeight: "500",
+    },
     });
 }

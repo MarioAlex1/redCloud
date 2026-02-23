@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { View, TextInput, TouchableOpacity, Text, Alert } from "react-native";
+import { View, TextInput, TouchableOpacity, Text } from "react-native";
 import Checkbox from "expo-checkbox";
 import { Link, router } from "expo-router";
 import { makeLoginStyles } from "../screens/LoginScreen.styles";
@@ -17,10 +17,12 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleLogin = async () => {
+    setErrorMsg('');
     if (!email || !password) {
-      Alert.alert('Erro', 'Preencha email e senha');
+      setErrorMsg('Preencha email e senha.');
       return;
     }
 
@@ -36,7 +38,7 @@ export default function LoginForm() {
       // Redireciona para home
       router.replace("/home");
     } catch (error: any) {
-      Alert.alert('Erro ao entrar', getFirebaseErrorMessage(error));
+      setErrorMsg(getFirebaseErrorMessage(error));
     } finally {
       setLoading(false);
     }
@@ -44,6 +46,12 @@ export default function LoginForm() {
 
   return (
     <>
+      {errorMsg !== '' && (
+        <View style={loginStyles.errorBox}>
+          <Text style={loginStyles.errorText}>{errorMsg}</Text>
+        </View>
+      )}
+
       <TextInput
         placeholder="Email ou nome de usuário"
         placeholderTextColor="#777"

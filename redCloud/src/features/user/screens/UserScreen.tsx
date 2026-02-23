@@ -14,6 +14,7 @@ import { useTheme } from '../../../theme/ThemeContext';
 
 export default function UserPage() {
     const { colors } = useTheme();
+    const [nick, setNick] = useState('');
     const [audio, setAudio] = useState("Português");
     const [subtitle, setSubtitle] = useState("N/A");
 
@@ -25,6 +26,8 @@ export default function UserPage() {
                 setAudio(prefs.audio);
                 setSubtitle(prefs.subtitle);
             }
+            const savedNick = await authStorage.getNick();
+            if (savedNick) setNick(savedNick);
         };
         loadPreferences();
     }, []);
@@ -41,7 +44,7 @@ export default function UserPage() {
             <View style={{ flex: 1, backgroundColor: colors.bg }}>
                 <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
                     <UserHeader />
-                    <UserProfilePic />
+                    <UserProfilePic nick={nick} />
                     <UserAccountOptions />
 
                     <UserPreferences

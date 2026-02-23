@@ -17,6 +17,14 @@ export function makeUserStyles(c: Colors, isDark = true) {
         marginBottom: 40,
     },
 
+    nicknameText: {
+        color: c.text,
+        fontSize: 18,
+        fontWeight: '600',
+        textAlign: 'center',
+        marginTop: 12,
+    },
+
     profilePic: {
         width: 120,
         height: 120,

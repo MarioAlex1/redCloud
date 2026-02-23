@@ -1,9 +1,9 @@
-import { View, Image } from "react-native";
+import { View, Image, Text } from "react-native";
 import { makeUserStyles } from "../screens/UserScreen.styles";
 import { useTheme } from "../../../theme/ThemeContext";
 import { useMemo } from "react";
 
-export default function UserProfilePic() {
+export default function UserProfilePic({ nick }: { nick: string }) {
     const { colors } = useTheme();
     const UserStyles = useMemo(() => makeUserStyles(colors), [colors]);
     return (
@@ -12,6 +12,7 @@ export default function UserProfilePic() {
                 source={require("../../../assets/images/perfiltemp.png")}
                 style={UserStyles.profilePic}
             />
+            <Text style={UserStyles.nicknameText}>{nick || 'Usuário'}</Text>
         </View>
     );
 }

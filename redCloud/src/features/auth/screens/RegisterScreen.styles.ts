@@ -11,7 +11,7 @@ export function makeRegisterStyles(c: Colors) {
         width: "100%",
         height: "100%",
         padding: 20,
-        paddingTop: "50%",
+        paddingTop: "38%",
         backgroundColor: c.surface, // surface card
         borderRadius: 75,
 
@@ -24,13 +24,13 @@ export function makeRegisterStyles(c: Colors) {
         fontSize: 35,
         fontWeight: "600",
         textAlign: 'center',
-        bottom: 100
+        bottom: 80
     },
 
     subtittle: {
         fontSize: 18,
         textAlign: 'center',
-        bottom: 80
+        bottom: 65
     },
 
     input: {
@@ -76,6 +76,22 @@ export function makeRegisterStyles(c: Colors) {
     checkboxLabel: {
         fontSize: 16,
         color: c.textSub,
+    },
+
+    errorBox: {
+        backgroundColor: "rgba(180, 30, 30, 0.12)",
+        borderLeftWidth: 4,
+        borderLeftColor: "#B41E1E",
+        borderRadius: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 14,
+        marginBottom: 12,
+    },
+
+    errorText: {
+        color: "#B41E1E",
+        fontSize: 13,
+        fontWeight: "500",
     },
     });
 }

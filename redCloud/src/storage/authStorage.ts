@@ -26,9 +26,38 @@ export const removeUser = async () => {
   try {
     // Remove a chave e seu conteúdo do AsyncStorage
     await AsyncStorage.removeItem('@user');
+    await AsyncStorage.removeItem('@userNick');
   } catch (error: any) {
     // Loga erros, mas não lança para evitar travar a app
     console.log("Erro ao remover usuário:", error.message);
+  }
+};
+
+// Salvar nick do usuário
+export const saveNick = async (nick: string) => {
+  try {
+    await AsyncStorage.setItem('@userNick', nick);
+  } catch (error: any) {
+    console.log("Erro ao salvar nick:", error.message);
+  }
+};
+
+// Recuperar nick do usuário
+export const getNick = async (): Promise<string | null> => {
+  try {
+    return await AsyncStorage.getItem('@userNick');
+  } catch (error: any) {
+    console.log("Erro ao recuperar nick:", error.message);
+    return null;
+  }
+};
+
+// Remover nick
+export const removeNick = async () => {
+  try {
+    await AsyncStorage.removeItem('@userNick');
+  } catch (error: any) {
+    console.log("Erro ao remover nick:", error.message);
   }
 };
 
